@@ -1,3 +1,3 @@
 # gamedev-2023
 
-test
+The collaborative project for the Game Development Club.
