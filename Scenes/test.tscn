@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b25bjbayd1efw"]
+[gd_scene load_steps=5 format=3 uid="uid://b25bjbayd1efw"]
 
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_os1u6"]
+[ext_resource type="PackedScene" uid="uid://da80tquw0i6eh" path="res://Scenes/coin.tscn" id="2_asokv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jymm4"]
 
@@ -10,7 +11,7 @@ size = Vector2(1725, 186)
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_os1u6")]
-position = Vector2(3, -8)
+position = Vector2(0, 1)
 SPEED = 600.0
 jump_height = 100.0
 jump_time_to_peak = 0.2
@@ -22,3 +23,6 @@ physics_material_override = SubResource("PhysicsMaterial_jymm4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(27.5, 358)
 shape = SubResource("RectangleShape2D_gokff")
+
+[node name="Coin" parent="." instance=ExtResource("2_asokv")]
+position = Vector2(185, 232)
