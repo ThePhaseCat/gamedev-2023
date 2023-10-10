@@ -10,6 +10,8 @@ extends CharacterBody2D
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+  
+var spaceHold = false
 
 #other vars
 @onready var area2D = $PlayerArea2D
@@ -17,21 +19,36 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += get_gravity() * delta
+		if spaceHold == false:
+			velocity.y += get_gravity() * delta
+		else: #means holding spacebar
+			velocity.y += get_gravity()/3 * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
-
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		await get_tree().create_timer(0.1).timeout
+		spaceHold = true
+	elif Input.is_action_just_released("ui_accept"):
+		await get_tree().create_timer(0.1).timeout
+		spaceHold = false
+	
+	if is_on_floor() and spaceHold == true:
+		spaceHold = false
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * SPEED
+		if(spaceHold == false):
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = direction * SPEED * 1.3
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
