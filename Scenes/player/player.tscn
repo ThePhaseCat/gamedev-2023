@@ -4,28 +4,42 @@
 [ext_resource type="Texture2D" uid="uid://bdeyhc2pcadqo" path="res://icon.svg" id="1_w5ucl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm2di"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e6te"]
-size = Vector2(48, 48)
+size = Vector2(8, 8)
 
 [node name="player" type="CharacterBody2D"]
+floor_constant_speed = true
+floor_snap_length = 3.0
 script = ExtResource("1_5gkox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.226563, 0.226563)
+position = Vector2(-4.76837e-07, -8)
+scale = Vector2(0.113282, 0.113282)
 texture = ExtResource("1_w5ucl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_hm2di")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+position = Vector2(0, -32)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="WallJumpTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [node name="PlayerArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_8e6te")
 
 [connection signal="area_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_area_entered"]
