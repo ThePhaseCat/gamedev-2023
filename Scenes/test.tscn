@@ -20,11 +20,11 @@ position = Vector2(171, 203)
 [node name="Coin2" parent="." instance=ExtResource("2_asokv")]
 position = Vector2(195, 203)
 
+[node name="Coin4" parent="." instance=ExtResource("2_asokv")]
+position = Vector2(-601, 1)
+
 [node name="Coin3" parent="." instance=ExtResource("2_asokv")]
 position = Vector2(218, 203)
-
-[node name="Coin4" parent="Coin3" instance=ExtResource("2_asokv")]
-position = Vector2(-819, -202)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("3_cr0r7")
