@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b25bjbayd1efw"]
+[gd_scene load_steps=7 format=3 uid="uid://b25bjbayd1efw"]
 
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_os1u6"]
 [ext_resource type="PackedScene" uid="uid://da80tquw0i6eh" path="res://Scenes/coin.tscn" id="2_asokv"]
 [ext_resource type="TileSet" uid="uid://dpnpnjhok3i0o" path="res://Tilesets/TestTileset/tileset_basic_tileset2.tres" id="3_cr0r7"]
 [ext_resource type="PackedScene" uid="uid://cb7p1p11xh3ws" path="res://Scenes/Objects/death_zone.tscn" id="4_4w0kk"]
+[ext_resource type="PackedScene" uid="uid://dsiaxum04ilk8" path="res://Scenes/Enemy/test_enemy.tscn" id="5_083o6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5rwu"]
 size = Vector2(3765, 300)
@@ -33,5 +34,8 @@ layer_0/tile_data = PackedInt32Array(2228287, 65536, 2, 2162751, 65536, 1, 20972
 [node name="CollisionShape2D" parent="DeathZone" index="0"]
 position = Vector2(279.5, 775)
 shape = SubResource("RectangleShape2D_o5rwu")
+
+[node name="Test_enemy" parent="." instance=ExtResource("5_083o6")]
+position = Vector2(-289, 206)
 
 [editable path="DeathZone"]
