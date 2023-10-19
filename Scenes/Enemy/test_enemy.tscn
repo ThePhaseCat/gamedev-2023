@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsiaxum04ilk8"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy/test_enemy.gd" id="1_1jy1o"]
+[ext_resource type="Texture2D" uid="uid://bdeyhc2pcadqo" path="res://icon.svg" id="1_vabny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3savu"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgj7w"]
+size = Vector2(32, 8)
+
+[node name="Test_enemy" type="CharacterBody2D"]
+script = ExtResource("1_1jy1o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_vabny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3savu")
+
+[node name="Jumpzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jumpzone"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_pgj7w")
+
+[connection signal="body_entered" from="Jumpzone" to="." method="_on_area_2d_body_entered"]

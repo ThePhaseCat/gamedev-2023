@@ -105,8 +105,12 @@ func apply_air_resistance(input_axis, delta):
 	if input_axis == 0 and not is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, air_resistance * delta)
 
+func enemyJump():
+	velocity.y = jump_velocity
+
 #handle when stuff goes into player
 func _on_player_area_2d_area_entered(area):
 	var name = area.get_name()
 	if(name == "DeathZone"):
 		get_tree().reload_current_scene()
+
