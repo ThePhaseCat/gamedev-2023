@@ -7,7 +7,7 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e6te"]
-size = Vector2(8, 8)
+size = Vector2(16, 16)
 
 [node name="player" type="CharacterBody2D"]
 floor_constant_speed = true
@@ -40,6 +40,8 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
 position = Vector2(0, -8)
+scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_8e6te")
 
 [connection signal="area_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_area_entered"]
+[connection signal="body_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_body_entered"]

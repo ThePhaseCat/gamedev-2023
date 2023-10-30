@@ -27,6 +27,9 @@ var was_wall_normal = Vector2.ZERO
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
+	#update global player position
+	global.playerPosition = position
+	
 	# Add the gravity.
 	handle_gravity(delta)
 	
@@ -114,3 +117,9 @@ func _on_player_area_2d_area_entered(area):
 	if(name == "DeathZone"):
 		get_tree().reload_current_scene()
 
+
+
+func _on_player_area_2d_body_entered(body):
+	var name = body.get_name()
+	if(name == "testEnemy"):
+		get_tree().reload_current_scene()
