@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dppr70up3djrx"]
+[gd_scene load_steps=6 format=3 uid="uid://dppr70up3djrx"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_5gkox"]
 [ext_resource type="Texture2D" uid="uid://bdeyhc2pcadqo" path="res://icon.svg" id="1_w5ucl"]
+[ext_resource type="PackedScene" uid="uid://cdxn4cr6yyes5" path="res://Scenes/player/hud.tscn" id="3_xksh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm2di"]
 size = Vector2(16, 16)
@@ -42,6 +43,8 @@ one_shot = true
 position = Vector2(0, -8)
 scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_8e6te")
+
+[node name="Hud" parent="." instance=ExtResource("3_xksh7")]
 
 [connection signal="area_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_area_entered"]
 [connection signal="body_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_body_entered"]
