@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+#test
 
 @export var SPEED = 150
 
