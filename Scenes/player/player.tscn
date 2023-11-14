@@ -11,6 +11,7 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 3
 floor_constant_speed = true
 floor_snap_length = 3.0
 script = ExtResource("1_5gkox")
@@ -38,6 +39,8 @@ wait_time = 0.1
 one_shot = true
 
 [node name="PlayerArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea2D"]
 position = Vector2(0, -8)
@@ -45,6 +48,8 @@ scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_8e6te")
 
 [node name="Hud" parent="." instance=ExtResource("3_xksh7")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="area_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_area_entered"]
 [connection signal="body_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_body_entered"]
