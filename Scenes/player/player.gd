@@ -129,9 +129,11 @@ func checks():
 func _on_player_area_2d_area_entered(area):
 	var name = area.get_name()
 	if(name == "DeathZone"):
+		global.amountOfCoins = 0
 		get_tree().reload_current_scene()
 
 func _on_player_area_2d_body_entered(body):
 	var name = body.get_name()
 	if(name == "testEnemy"):
+		global.amountOfCoins = 0
 		get_tree().reload_current_scene()
