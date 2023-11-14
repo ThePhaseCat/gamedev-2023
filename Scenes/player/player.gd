@@ -29,6 +29,8 @@ var was_wall_normal = Vector2.ZERO
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var playerFacingDirection = "right"
+
 func _physics_process(delta):
 	#update global player position
 	global.playerPosition = position
@@ -63,7 +65,10 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if(Input.is_action_just_pressed("attack")):
 		if(checks()): #must return true
-			print("can attack")
+			if(playerFacingDirection == "left"):
+				pass #play left attack animation
+			else:
+				pass #play right attack animation
 
 func handle_gravity(delta):
 	if not is_on_floor():
@@ -101,6 +106,10 @@ func handle_acceleration(input_axis, delta):
 		return #literally does nothing
 	if input_axis != 0:
 		velocity.x = move_toward(velocity.x, SPEED * input_axis, acceleration * delta)
+		if(input_axis == 1):
+			playerFacingDirection = "right"
+		else:
+			playerFacingDirection = "left"
 
 func handle_air_acceleration(input_axis, delta):
 	if is_on_floor(): 

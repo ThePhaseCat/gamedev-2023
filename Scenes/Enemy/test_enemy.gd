@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var hp = 1
+var hp = 5
 
 var speed = 100
 var gravity = 20
@@ -36,4 +36,13 @@ func _on_area_2d_body_entered(body):
 	var name = body.get_name()
 	if(name == "player"):
 		body.enemyJump()
-		queue_free()
+		death()
+
+
+func _on_attack_check_area_entered(area):
+	hp = hp - 1
+	if(hp == 0):
+		death()
+
+func death():
+	queue_free()
