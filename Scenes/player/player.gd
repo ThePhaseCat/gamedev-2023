@@ -26,6 +26,8 @@ var was_wall_normal = Vector2.ZERO
 
 @onready var animation =$AnimationPlayer
 
+@onready var PlayerSwordAttack = $PlayerSwordAttack
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -70,9 +72,11 @@ func _unhandled_input(event):
 			if(canAttack == true):
 				canAttack = false
 				if(playerFacingDirection == "left"):
-					pass #play left attack animation
+					PlayerSwordAttack.monitorable = true
+					animation.play("attackLeft")
 				else:
-					pass #play right attack animation
+					PlayerSwordAttack.monitorable = true
+					animation.play("attackRight")
 
 func handle_gravity(delta):
 	if not is_on_floor():
@@ -153,3 +157,4 @@ func _on_player_area_2d_body_entered(body):
 
 func mainAttackAnimationFinished(): #called when main attack animation (either left or right) is finished
 	canAttack = true
+	PlayerSwordAttack.monitorable = false

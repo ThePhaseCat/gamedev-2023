@@ -8,6 +8,7 @@ var gravity = 20
 var is_moving_left = true
 
 @onready var ray = $RayCast2D
+@onready var ray2 = $RayCast2D2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +32,11 @@ func detect_turn_around():
 	if(not ray.is_colliding()):
 		is_moving_left = !is_moving_left
 		scale.x = -scale.x
+	elif(ray2.is_colliding()):
+		is_moving_left = !is_moving_left
+		scale.x = -scale.x
+	else:
+		pass
 
 func _on_area_2d_body_entered(body):
 	var name = body.get_name()

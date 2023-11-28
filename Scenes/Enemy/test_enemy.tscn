@@ -33,6 +33,10 @@ shape = SubResource("RectangleShape2D_pgj7w")
 position = Vector2(15, 0)
 target_position = Vector2(0, 24)
 
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(18, 8)
+target_position = Vector2(9, 0)
+
 [node name="attackCheck" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
