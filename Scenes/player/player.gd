@@ -31,6 +31,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var playerFacingDirection = "right"
 
+var canAttack = true
+
 func _physics_process(delta):
 	#update global player position
 	global.playerPosition = position
@@ -65,10 +67,12 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if(Input.is_action_just_pressed("attack")):
 		if(checks()): #must return true
-			if(playerFacingDirection == "left"):
-				pass #play left attack animation
-			else:
-				pass #play right attack animation
+			if(canAttack == true):
+				canAttack = false
+				if(playerFacingDirection == "left"):
+					pass #play left attack animation
+				else:
+					pass #play right attack animation
 
 func handle_gravity(delta):
 	if not is_on_floor():
@@ -146,3 +150,6 @@ func _on_player_area_2d_body_entered(body):
 	if(name == "testEnemy"):
 		global.amountOfCoins = 0
 		get_tree().reload_current_scene()
+
+func mainAttackAnimationFinished(): #called when main attack animation (either left or right) is finished
+	canAttack = true
