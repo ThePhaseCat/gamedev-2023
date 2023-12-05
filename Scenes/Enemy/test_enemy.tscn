@@ -46,3 +46,4 @@ shape = SubResource("CircleShape2D_drtat")
 
 [connection signal="body_entered" from="Jumpzone" to="." method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="attackCheck" to="." method="_on_attack_check_area_entered"]
+[connection signal="area_exited" from="attackCheck" to="." method="_on_attack_check_area_exited"]

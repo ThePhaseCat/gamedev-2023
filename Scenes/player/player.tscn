@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dppr70up3djrx"]
+[gd_scene load_steps=16 format=3 uid="uid://dppr70up3djrx"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_5gkox"]
 [ext_resource type="Texture2D" uid="uid://bdeyhc2pcadqo" path="res://icon.svg" id="1_w5ucl"]
 [ext_resource type="PackedScene" uid="uid://cdxn4cr6yyes5" path="res://Scenes/player/hud.tscn" id="3_xksh7"]
+[ext_resource type="Script" path="res://Scenes/player/PlayerSwordAttack.gd" id="4_cwttp"]
 [ext_resource type="Texture2D" uid="uid://d7modwpw4afu" path="res://Assets/Sprites/scratch_sprite.png" id="4_uoh28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm2di"]
@@ -10,59 +11,6 @@ size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e6te"]
 size = Vector2(16, 16)
-
-[sub_resource type="Animation" id="Animation_6us7o"]
-resource_name = "attackRight"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("scratchsprite:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerSwordAttack/CollisionShape2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(16, -8), Vector2(16, -8)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("scratchsprite:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(16, -8), Vector2(16, -8)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"mainAttackAnimationFinished"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_qm4jy"]
 length = 0.001
@@ -105,6 +53,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_1qobo"]
 resource_name = "attackLeft"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -112,7 +61,7 @@ tracks/0/path = NodePath("PlayerSwordAttack/CollisionShape2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-16, -8), Vector2(-16, -8)]
@@ -124,7 +73,7 @@ tracks/1/path = NodePath("scratchsprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -136,7 +85,7 @@ tracks/2/path = NodePath("scratchsprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-16, -8), Vector2(-16, -8)]
@@ -148,7 +97,61 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"mainAttackAnimationFinished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6us7o"]
+resource_name = "attackRight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("scratchsprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSwordAttack/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, -8), Vector2(16, -8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("scratchsprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, -8), Vector2(16, -8)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -234,6 +237,7 @@ libraries = {
 [node name="PlayerSwordAttack" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 0
+script = ExtResource("4_cwttp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSwordAttack"]
 position = Vector2(16, -8)

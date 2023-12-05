@@ -35,6 +35,8 @@ var playerFacingDirection = "right"
 
 var canAttack = true
 
+var attacking = false
+
 func _physics_process(delta):
 	#update global player position
 	global.playerPosition = position
@@ -47,7 +49,7 @@ func _physics_process(delta):
 	handle_jump()
 	
 	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("move_left", "move_right")
 	handle_acceleration(direction, delta)
 	handle_air_acceleration(direction, delta)
 	apply_friction(direction, delta)
@@ -71,11 +73,10 @@ func _unhandled_input(event):
 		if(checks()): #must return true
 			if(canAttack == true):
 				canAttack = false
+				PlayerSwordAttack.attacking = true
 				if(playerFacingDirection == "left"):
-					PlayerSwordAttack.monitorable = true
 					animation.play("attackLeft")
 				else:
-					PlayerSwordAttack.monitorable = true
 					animation.play("attackRight")
 
 func handle_gravity(delta):
@@ -88,7 +89,7 @@ func handle_wallJump():
 	var wall_normal = get_wall_normal() 
 	if wall_jump_timer.time_left > 0.0:
 		wall_normal = was_wall_normal
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 		velocity.x = wall_normal.x * SPEED
 		velocity.y = jump_velocity
 		just_wall_jumped = true
@@ -98,14 +99,14 @@ func handle_jump():
 		air_jump = true #for double jump
 	
 	if is_on_floor() or coyote_jump_timer.time_left > 0.0:
-		if Input.is_action_pressed("ui_accept"):
+		if Input.is_action_pressed("jump"):
 			velocity.y = jump_velocity
 			coyote_jump_timer.stop()
 	elif not is_on_floor():
-		if Input.is_action_just_released("ui_accept") and velocity.y < jump_velocity / 2:
+		if Input.is_action_just_released("jump") and velocity.y < jump_velocity / 2:
 			velocity.y = jump_velocity / 2
 		
-		if Input.is_action_just_pressed("ui_accept") and air_jump and not just_wall_jumped:
+		if Input.is_action_just_pressed("jump") and air_jump and not just_wall_jumped:
 			velocity.y = jump_velocity * 0.8
 			air_jump = false
 
@@ -157,4 +158,4 @@ func _on_player_area_2d_body_entered(body):
 
 func mainAttackAnimationFinished(): #called when main attack animation (either left or right) is finished
 	canAttack = true
-	PlayerSwordAttack.monitorable = false
+	PlayerSwordAttack.attacking = false
