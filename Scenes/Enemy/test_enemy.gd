@@ -44,8 +44,11 @@ func detect_turn_around():
 		is_moving_left = !is_moving_left
 		scale.x = -scale.x
 	elif(ray2.is_colliding()):
-		is_moving_left = !is_moving_left
-		scale.x = -scale.x
+		if(ray2.get_collider().get_name() == "player"):
+			return #do nothing because turn around shouldn't happen with player
+		else:
+			is_moving_left = !is_moving_left
+			scale.x = -scale.x
 	else:
 		pass
 

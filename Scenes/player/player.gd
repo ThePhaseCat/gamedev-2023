@@ -24,9 +24,12 @@ var was_wall_normal = Vector2.ZERO
 @onready var coyote_jump_timer = $CoyoteJumpTimer
 @onready var wall_jump_timer = $WallJumpTimer
 
-@onready var animation =$AnimationPlayer
+@onready var animation = $AnimationPlayer
 
 @onready var PlayerSwordAttack = $PlayerSwordAttack
+
+@onready var sprite = $AnimatedSprite2D
+@onready var scratchSprite = $scratchsprite
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -36,6 +39,9 @@ var playerFacingDirection = "right"
 var canAttack = true
 
 var attacking = false
+
+func _ready():
+	scratchSprite.hide()
 
 func _physics_process(delta):
 	#update global player position
@@ -67,17 +73,26 @@ func _physics_process(delta):
 	var just_left_wall = was_on_wall and not is_on_wall()
 	if just_left_wall:
 		wall_jump_timer.start()
+	
+	handle_animations(direction)
+	
+	sprite.flip_h = velocity.x < 0
 
 func _unhandled_input(event):
 	if(Input.is_action_just_pressed("attack")):
 		if(checks()): #must return true
 			if(canAttack == true):
-				canAttack = false
-				PlayerSwordAttack.attacking = true
-				if(playerFacingDirection == "left"):
-					animation.play("attackLeft")
-				else:
-					animation.play("attackRight")
+				if(PlayerSwordAttack.attacking == false):
+					if(playerFacingDirection == "left"):
+						canAttack = false
+						PlayerSwordAttack.attacking = true
+						animation.play("attackLeft")
+						sprite.play("scratch")
+					else:
+						canAttack = false
+						PlayerSwordAttack.attacking = true
+						animation.play("attackRight")
+						sprite.play("scratch")
 
 func handle_gravity(delta):
 	if not is_on_floor():
@@ -102,13 +117,16 @@ func handle_jump():
 		if Input.is_action_pressed("jump"):
 			velocity.y = jump_velocity
 			coyote_jump_timer.stop()
+			sprite.play("jump")
 	elif not is_on_floor():
 		if Input.is_action_just_released("jump") and velocity.y < jump_velocity / 2:
 			velocity.y = jump_velocity / 2
+			sprite.play("jump")
 		
 		if Input.is_action_just_pressed("jump") and air_jump and not just_wall_jumped:
 			velocity.y = jump_velocity * 0.8
 			air_jump = false
+			sprite.play("jump")
 
 func handle_acceleration(input_axis, delta):
 	if not is_on_floor(): 
@@ -159,3 +177,15 @@ func _on_player_area_2d_body_entered(body):
 func mainAttackAnimationFinished(): #called when main attack animation (either left or right) is finished
 	canAttack = true
 	PlayerSwordAttack.attacking = false
+
+func handle_animations(dir):
+	if(PlayerSwordAttack.attacking == true and canAttack == false):
+		pass
+	else:
+		if(velocity == Vector2.ZERO):
+			sprite.play("idle")
+		else:
+			if(is_on_floor() == true):
+				sprite.play("walk")
+				sprite.flip_h = velocity.x < 0
+
