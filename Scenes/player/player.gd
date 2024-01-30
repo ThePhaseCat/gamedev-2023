@@ -76,9 +76,15 @@ func _physics_process(delta):
 	
 	handle_animations(direction)
 	
-	sprite.flip_h = velocity.x < 0
+	#sprite.flip_h = velocity.x < 0
 
 func _unhandled_input(event):
+	if(Input.is_action_just_pressed("move_left")):
+		playerFacingDirection = "left"
+		sprite.flip_h = true
+	if(Input.is_action_just_pressed("move_right")):
+		playerFacingDirection = "right"
+		sprite.flip_h = false
 	if(Input.is_action_just_pressed("attack")):
 		if(checks()): #must return true
 			if(canAttack == true):
@@ -133,10 +139,10 @@ func handle_acceleration(input_axis, delta):
 		return #literally does nothing
 	if input_axis != 0:
 		velocity.x = move_toward(velocity.x, SPEED * input_axis, acceleration * delta)
-		if(input_axis == 1):
-			playerFacingDirection = "right"
-		else:
-			playerFacingDirection = "left"
+		#if(input_axis == 1):
+			#playerFacingDirection = "right"
+		#else:
+			#playerFacingDirection = "left"
 
 func handle_air_acceleration(input_axis, delta):
 	if is_on_floor(): 
@@ -184,8 +190,15 @@ func handle_animations(dir):
 	else:
 		if(velocity == Vector2.ZERO):
 			sprite.play("idle")
+			#if(playerFacingDirection == "left"):
+				#sprite.flip_h = true
+			#elif(playerFacingDirection == "right"):
+				#sprite.flip_h = false
 		else:
 			if(is_on_floor() == true):
 				sprite.play("walk")
-				sprite.flip_h = velocity.x < 0
+				#if(playerFacingDirection == "left"):
+					#sprite.flip_h = true
+				#elif(playerFacingDirection == "right"):
+					#sprite.flip_h = false
 

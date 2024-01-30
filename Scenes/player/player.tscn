@@ -201,7 +201,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_1qobo"]
 resource_name = "attackLeft"
-length = 0.5
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -255,7 +255,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_6us7o"]
 resource_name = "attackRight"
-length = 0.5
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
