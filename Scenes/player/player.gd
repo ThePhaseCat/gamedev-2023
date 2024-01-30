@@ -85,20 +85,22 @@ func _unhandled_input(event):
 	if(Input.is_action_just_pressed("move_right")):
 		playerFacingDirection = "right"
 		sprite.flip_h = false
+	
 	if(Input.is_action_just_pressed("attack")):
 		if(checks()): #must return true
 			if(canAttack == true):
 				if(PlayerSwordAttack.attacking == false):
-					if(playerFacingDirection == "left"):
-						canAttack = false
-						PlayerSwordAttack.attacking = true
-						animation.play("attackLeft")
-						sprite.play("scratch")
+					if(animation.is_playing() == true):
+						pass #don't do anything
 					else:
 						canAttack = false
 						PlayerSwordAttack.attacking = true
-						animation.play("attackRight")
-						sprite.play("scratch")
+						if(playerFacingDirection == "left"):
+							animation.play("attackLeft")
+							sprite.play("scratch")
+						else:
+							animation.play("attackRight")
+							sprite.play("scratch")
 
 func handle_gravity(delta):
 	if not is_on_floor():
@@ -185,7 +187,7 @@ func mainAttackAnimationFinished(): #called when main attack animation (either l
 	PlayerSwordAttack.attacking = false
 
 func handle_animations(dir):
-	if(PlayerSwordAttack.attacking == true and canAttack == false):
+	if(canAttack == false and PlayerSwordAttack.attacking == true):
 		pass
 	else:
 		if(velocity == Vector2.ZERO):
