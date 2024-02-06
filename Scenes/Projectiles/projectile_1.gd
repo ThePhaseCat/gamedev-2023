@@ -24,6 +24,7 @@ func _process(delta):
 		collision = move_and_collide(Vector2(-2, 0))
 		if(collision):
 			var name = collision.get_collider().name
+			print(name)
 			if(name == "testEnemy"):
 				collision.get_collider().healthDecreaseFromProjectile()
 			queue_free()
