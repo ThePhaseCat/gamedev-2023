@@ -31,13 +31,14 @@ func _process(delta):
 	
 	move_and_slide()
 	
+	if(hp <= 0):
+		death()
+	
 	if(attackNodeInArea == true):
 		if(attackingNode.attacking == true):
 			print("HP: " + str(hp))
 			hp = hp - 1
 			await get_tree().create_timer(0.5).timeout
-			if(hp <= 0):
-				death()
 
 func detect_turn_around():
 	if(not ray.is_colliding()):
@@ -69,6 +70,9 @@ func _on_attack_check_area_entered(area):
 func death():
 	queue_free()
 
+func healthDecreaseFromProjectile():
+	hp = hp - 5
+	print("hp + " + str(hp))
 
 func _on_attack_check_area_exited(area):
 	attackNodeInArea = false

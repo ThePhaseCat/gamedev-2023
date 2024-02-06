@@ -40,6 +40,9 @@ var canAttack = true
 
 var attacking = false
 
+#projectile stuff
+var projectile1 = preload("res://Scenes/Projectiles/projectile_1.tscn")
+
 func _ready():
 	scratchSprite.hide()
 
@@ -101,6 +104,10 @@ func _unhandled_input(event):
 						else:
 							animation.play("attackRight")
 							sprite.play("scratch")
+	
+	if(Input.is_action_just_pressed("ranged_attack")):
+		print("ranged attack now")
+		projectileAttack1()
 
 func handle_gravity(delta):
 	if not is_on_floor():
@@ -204,3 +211,13 @@ func handle_animations(dir):
 				#elif(playerFacingDirection == "right"):
 					#sprite.flip_h = false
 
+func projectileAttack1():
+	var projectile = projectile1.instantiate()
+	get_parent().add_child(projectile)
+	projectile.global_position = global_position
+	if(playerFacingDirection == "left"):
+		projectile.dir = "left"
+	elif(playerFacingDirection == "right"):
+		projectile.dir = "right"
+	else:
+		print("this shouldn't happen")
