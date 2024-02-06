@@ -214,6 +214,7 @@ func projectileAttack1():
 	var projectile = projectile1.instantiate()
 	get_parent().add_child(projectile)
 	projectile.global_position = global_position
+	projectile.global_position.y = projectile.global_position.y - 20
 	if(playerFacingDirection == "left"):
 		projectile.dir = "left"
 	elif(playerFacingDirection == "right"):
