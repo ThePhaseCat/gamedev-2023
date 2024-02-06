@@ -106,7 +106,6 @@ func _unhandled_input(event):
 							sprite.play("scratch")
 	
 	if(Input.is_action_just_pressed("ranged_attack")):
-		print("ranged attack now")
 		projectileAttack1()
 
 func handle_gravity(delta):
