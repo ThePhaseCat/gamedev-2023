@@ -3,6 +3,10 @@ extends CharacterBody2D
 #test
 
 @export var SPEED = 150
+@export var DASH_SPEED = 300
+@export var AIR_DASH_SPEED = 400
+var dashing = false
+var can_dash = true
 
 @export var acceleration = 1000
 @export var air_acceleration = 400
@@ -42,6 +46,10 @@ var attacking = false
 
 #projectile stuff
 var projectile1 = preload("res://Scenes/Projectiles/projectile_1.tscn")
+
+#timer
+@onready var dash_timer = $dash_timer
+@onready var dash_again_timer = $dash_again_timer
 
 func _ready():
 	scratchSprite.hide()
@@ -105,6 +113,13 @@ func _unhandled_input(event):
 							animation.play("attackRight")
 							sprite.play("scratch")
 	
+	if(Input.is_action_just_pressed("dash") and can_dash == true):
+		dashing = true
+		can_dash = false
+		dash_timer.start()
+		dash_again_timer.start()
+		
+	
 	if(Input.is_action_just_pressed("ranged_attack")):
 		projectileAttack1()
 
@@ -146,7 +161,11 @@ func handle_acceleration(input_axis, delta):
 	if not is_on_floor(): 
 		return #literally does nothing
 	if input_axis != 0:
-		velocity.x = move_toward(velocity.x, SPEED * input_axis, acceleration * delta)
+		if(dashing == true):
+			velocity.x = input_axis * DASH_SPEED
+		else:
+			velocity.x = input_axis * SPEED
+		velocity.x = move_toward(velocity.x, 0, acceleration * delta)
 		#if(input_axis == 1):
 			#playerFacingDirection = "right"
 		#else:
@@ -156,7 +175,12 @@ func handle_air_acceleration(input_axis, delta):
 	if is_on_floor(): 
 		return #also does nothing
 	if input_axis != 0:
-		velocity.x = move_toward(velocity.x, SPEED * input_axis, air_acceleration * delta)
+		if(dashing == true):
+			velocity.x = input_axis * AIR_DASH_SPEED
+			velocity.y = 0
+		else:
+			velocity.x = input_axis * SPEED
+		velocity.x = move_toward(velocity.x, 0, air_acceleration * delta)
 
 func apply_friction(input_axis, delta):
 	if input_axis == 0 and is_on_floor():
@@ -221,3 +245,11 @@ func projectileAttack1():
 		projectile.dir = "right"
 	else:
 		print("this shouldn't happen")
+
+
+func _on_dash_timer_timeout():
+	dashing = false
+
+
+func _on_dash_again_timer_timeout():
+	can_dash = true
