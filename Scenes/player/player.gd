@@ -55,6 +55,10 @@ var projectile1 = preload("res://Scenes/Projectiles/projectile_1.tscn")
 
 func _ready():
 	scratchSprite.hide()
+	if(global.hasPlayerHitCheckpoint == true):
+		position = global.checkpointPosition
+	else:
+		pass
 
 func _physics_process(delta):
 	#update global player position
@@ -258,4 +262,7 @@ func _on_dash_timer_timeout():
 
 
 func _on_dash_again_timer_timeout():
-	pass
+	if(just_wall_jumped == true):
+		return #do nothing
+	else:
+		can_dash = true
