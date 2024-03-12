@@ -14,7 +14,7 @@ size = Vector2(4457, 300)
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_os1u6")]
-position = Vector2(-12, 117)
+position = Vector2(1, 171)
 friction = 2000
 
 [node name="Coin" parent="." instance=ExtResource("2_asokv")]
@@ -62,7 +62,7 @@ position = Vector2(1744, 131)
 position = Vector2(1216, 207)
 
 [node name="testEnemy2" parent="." instance=ExtResource("5_083o6")]
-position = Vector2(1446, 287)
+position = Vector2(1352, 288)
 
 [node name="testEnemy3" parent="." instance=ExtResource("5_083o6")]
 position = Vector2(2009, -34)
