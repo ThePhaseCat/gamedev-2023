@@ -218,9 +218,20 @@ func _on_player_area_2d_area_entered(area):
 
 func _on_player_area_2d_body_entered(body):
 	var name = body.get_name()
-	if(name == "testEnemy"):
+	match name:
+		"testEnemy":
+			actualDeath()
+		"mainEnemy":
+			actualDeath()
+
+
+func actualDeath():
+	if(global.hasPlayerHitCheckpoint == true):
+		pass
+	else:
 		global.amountOfCoins = 0
-		get_tree().reload_current_scene()
+	
+	get_tree().reload_current_scene()
 
 func mainAttackAnimationFinished(): #called when main attack animation (either left or right) is finished
 	canAttack = true

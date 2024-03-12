@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b25bjbayd1efw"]
+[gd_scene load_steps=10 format=3 uid="uid://b25bjbayd1efw"]
 
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_os1u6"]
 [ext_resource type="PackedScene" uid="uid://da80tquw0i6eh" path="res://Scenes/coin.tscn" id="2_asokv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dsiaxum04ilk8" path="res://Scenes/Enemy/test_enemy.tscn" id="5_083o6"]
 [ext_resource type="PackedScene" uid="uid://plnrnigon5r0" path="res://Scenes/Objects/checkpoint.tscn" id="6_0hgka"]
 [ext_resource type="Script" path="res://Scenes/Enemy/flying_enemy.gd" id="7_8ksjy"]
+[ext_resource type="PackedScene" uid="uid://cdsfjyfo8mdx0" path="res://Scenes/Enemy/main_enemy.tscn" id="8_wefnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5rwu"]
 size = Vector2(4457, 300)
@@ -16,9 +17,6 @@ size = Vector2(4457, 300)
 [node name="player" parent="." instance=ExtResource("1_os1u6")]
 position = Vector2(-12, 117)
 friction = 2000
-
-[node name="Coin" parent="." instance=ExtResource("2_asokv")]
-position = Vector2(171, 203)
 
 [node name="Coin2" parent="." instance=ExtResource("2_asokv")]
 position = Vector2(195, 203)
@@ -70,5 +68,8 @@ position = Vector2(2009, -34)
 [node name="FlyingEnemy" parent="." instance=ExtResource("5_083o6")]
 position = Vector2(1843, 156)
 script = ExtResource("7_8ksjy")
+
+[node name="mainEnemy" parent="." instance=ExtResource("8_wefnl")]
+position = Vector2(127, 196)
 
 [editable path="DeathZone"]
