@@ -44,7 +44,8 @@ func wait(duration):
 	await get_tree().create_timer(duration,false,false,true).timeout
 
 func detect_turn_around():
-	if(not ray.is_colliding()):
+	if(ray.is_colliding()):
+		wait(1.0)
 		is_moving_left = !is_moving_left
 		scale.x = -scale.x
 	elif(ray2.is_colliding()):
