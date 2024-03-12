@@ -8,7 +8,6 @@ var gravity = 0
 var is_moving_left = true
 
 @onready var ray = $RayCast2D
-@onready var ray2 = $RayCast2D2
 
 var attackNodeInArea = false
 var attackingNode = null
@@ -45,17 +44,12 @@ func wait(duration):
 
 func detect_turn_around():
 	if(ray.is_colliding()):
-		wait(1.0)
-		is_moving_left = !is_moving_left
-		scale.x = -scale.x
-	elif(ray2.is_colliding()):
-		if(ray2.get_collider().get_name() == "player"):
-			return #do nothing because turn around shouldn't happen with player
+		if(ray.get_collider().get_name() == "player"):
+			return #do nothing because player
 		else:
+			print("hi!")
 			is_moving_left = !is_moving_left
 			scale.x = -scale.x
-	else:
-		pass
 
 func _on_area_2d_body_entered(body):
 	var name = body.get_name()
