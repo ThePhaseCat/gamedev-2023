@@ -87,12 +87,12 @@ shape = SubResource("CapsuleShape2D_qsiq6")
 [node name="Jumpzone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jumpzone"]
-position = Vector2(24, -16)
+position = Vector2(24, -22)
 shape = SubResource("RectangleShape2D_pgj7w")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(15, 0)
-target_position = Vector2(1, 40)
+position = Vector2(24, 0)
+target_position = Vector2(0, 40)
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2(18, 8)

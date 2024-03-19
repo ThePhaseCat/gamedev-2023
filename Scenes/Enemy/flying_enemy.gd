@@ -57,7 +57,6 @@ func _on_area_2d_body_entered(body):
 		body.enemyJump()
 		death()
 
-
 func _on_attack_check_area_entered(area):
 	attackNodeInArea = true
 	attackingNode = area

@@ -102,9 +102,11 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if(Input.is_action_just_pressed("move_left")):
 		playerFacingDirection = "left"
+		sprite.offset = Vector2(-7, 0)
 		sprite.flip_h = true
 	if(Input.is_action_just_pressed("move_right")):
 		playerFacingDirection = "right"
+		sprite.offset = Vector2.ZERO
 		sprite.flip_h = false
 	
 	if(Input.is_action_just_pressed("attack")):
@@ -226,6 +228,8 @@ func _on_player_area_2d_body_entered(body):
 		"testEnemy":
 			actualDeath()
 		"mainEnemy":
+			actualDeath()
+		"flyingEnemy":
 			actualDeath()
 
 

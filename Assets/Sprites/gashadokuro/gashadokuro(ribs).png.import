@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1byv7i1mjisy"
-path="res://.godot/imported/Raiju Horn.png-3b1fdd12f261a9e945e53ab690d151ef.ctex"
+uid="uid://duvlap7720ok8"
+path="res://.godot/imported/gashadokuro(ribs).png-389736bf56d9f3049fc54bd87b6c93cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Raiju/Raiju Horn.png"
-dest_files=["res://.godot/imported/Raiju Horn.png-3b1fdd12f261a9e945e53ab690d151ef.ctex"]
+source_file="res://Assets/Sprites/gashadokuro/gashadokuro(ribs).png"
+dest_files=["res://.godot/imported/gashadokuro(ribs).png-389736bf56d9f3049fc54bd87b6c93cf.ctex"]
 
 [params]
 
