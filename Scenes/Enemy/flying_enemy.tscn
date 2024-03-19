@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://do5bie2pf6jll"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy/flying_enemy.gd" id="1_ce0t4"]
+[ext_resource type="Texture2D" uid="uid://bdeyhc2pcadqo" path="res://icon.svg" id="2_a6oa3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3savu"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgj7w"]
+size = Vector2(32, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_drtat"]
+radius = 25.02
+
+[node name="flyingEnemy" type="CharacterBody2D"]
+collision_layer = 5
+script = ExtResource("1_ce0t4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_a6oa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3savu")
+
+[node name="Jumpzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jumpzone"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_pgj7w")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(18, 8)
+target_position = Vector2(9, 0)
+
+[node name="attackCheck" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackCheck"]
+shape = SubResource("CircleShape2D_drtat")
+
+[connection signal="body_entered" from="Jumpzone" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="attackCheck" to="." method="_on_attack_check_area_entered"]
+[connection signal="area_exited" from="attackCheck" to="." method="_on_attack_check_area_exited"]

@@ -42,6 +42,8 @@ var playerFacingDirection = "right"
 
 var canAttack = true
 
+var canShootProjectile = true
+
 var attacking = false
 
 var timesWallJumped = 0
@@ -52,6 +54,7 @@ var projectile1 = preload("res://Scenes/Projectiles/projectile_1.tscn")
 #timer
 @onready var dash_timer = $dash_timer
 @onready var dash_again_timer = $dash_again_timer
+@onready var projectile_fire_timer = $projectile_fire_timer
 
 func _ready():
 	scratchSprite.hide()
@@ -128,7 +131,8 @@ func _unhandled_input(event):
 		
 	
 	if(Input.is_action_just_pressed("ranged_attack")):
-		projectileAttack1()
+		if(canShootProjectile == true):
+			projectileAttack1()
 
 func handle_gravity(delta):
 	if not is_on_floor():
@@ -218,9 +222,20 @@ func _on_player_area_2d_area_entered(area):
 
 func _on_player_area_2d_body_entered(body):
 	var name = body.get_name()
-	if(name == "testEnemy"):
+	match name:
+		"testEnemy":
+			actualDeath()
+		"mainEnemy":
+			actualDeath()
+
+
+func actualDeath():
+	if(global.hasPlayerHitCheckpoint == true):
+		pass
+	else:
 		global.amountOfCoins = 0
-		get_tree().reload_current_scene()
+	
+	get_tree().reload_current_scene()
 
 func mainAttackAnimationFinished(): #called when main attack animation (either left or right) is finished
 	canAttack = true
@@ -249,6 +264,8 @@ func projectileAttack1():
 	get_parent().add_child(projectile)
 	projectile.global_position = global_position
 	projectile.global_position.y = projectile.global_position.y - 20
+	canShootProjectile = false
+	projectile_fire_timer.start()
 	if(playerFacingDirection == "left"):
 		projectile.dir = "left"
 	elif(playerFacingDirection == "right"):
@@ -266,3 +283,7 @@ func _on_dash_again_timer_timeout():
 		return #do nothing
 	else:
 		can_dash = true
+
+
+func _on_projectile_fire_timer_timeout():
+	canShootProjectile = true

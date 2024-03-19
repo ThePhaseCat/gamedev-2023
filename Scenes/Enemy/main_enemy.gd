@@ -2,19 +2,21 @@ extends CharacterBody2D
 
 var hp = 20
 
-var speed = 110
+var speed = 50
 var gravity = 0
 
 var is_moving_left = true
 
 @onready var ray = $RayCast2D
+@onready var ray2 = $RayCast2D2
+@onready var sprite = $AnimatedSprite2D
 
 var attackNodeInArea = false
 var attackingNode = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sprite.play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,13 +45,17 @@ func wait(duration):
 	await get_tree().create_timer(duration,false,false,true).timeout
 
 func detect_turn_around():
-	if(ray.is_colliding()):
-		if(ray.get_collider().get_name() == "player"):
-			return #do nothing because player
+	if(not ray.is_colliding()):
+		is_moving_left = !is_moving_left
+		scale.x = -scale.x
+	elif(ray2.is_colliding()):
+		if(ray2.get_collider().get_name() == "player"):
+			return #do nothing because turn around shouldn't happen with player
 		else:
-			#print("hi!")
 			is_moving_left = !is_moving_left
 			scale.x = -scale.x
+	else:
+		pass
 
 func _on_area_2d_body_entered(body):
 	var name = body.get_name()
