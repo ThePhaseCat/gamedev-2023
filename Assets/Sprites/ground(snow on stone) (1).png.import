@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1byv7i1mjisy"
-path="res://.godot/imported/Raiju Horn.png-3b1fdd12f261a9e945e53ab690d151ef.ctex"
+uid="uid://bnndllkfxa4fd"
+path="res://.godot/imported/ground(snow on stone) (1).png-0c941cd6cb41e5309fecad83d4766d85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Raiju/Raiju Horn.png"
-dest_files=["res://.godot/imported/Raiju Horn.png-3b1fdd12f261a9e945e53ab690d151ef.ctex"]
+source_file="res://Assets/Sprites/ground(snow on stone) (1).png"
+dest_files=["res://.godot/imported/ground(snow on stone) (1).png-0c941cd6cb41e5309fecad83d4766d85.ctex"]
 
 [params]
 

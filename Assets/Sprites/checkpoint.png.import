@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1byv7i1mjisy"
-path="res://.godot/imported/Raiju Horn.png-3b1fdd12f261a9e945e53ab690d151ef.ctex"
+uid="uid://bofm4deh8ht5w"
+path="res://.godot/imported/checkpoint.png-043526fd4f7f7e6057bac7a03350d7c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Raiju/Raiju Horn.png"
-dest_files=["res://.godot/imported/Raiju Horn.png-3b1fdd12f261a9e945e53ab690d151ef.ctex"]
+source_file="res://Assets/Sprites/checkpoint.png"
+dest_files=["res://.godot/imported/checkpoint.png-043526fd4f7f7e6057bac7a03350d7c2.ctex"]
 
 [params]
 
