@@ -65,7 +65,7 @@ radius = 24.0
 height = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgj7w"]
-size = Vector2(16, 8)
+size = Vector2(32, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_drtat"]
 radius = 40.0
@@ -87,7 +87,7 @@ shape = SubResource("CapsuleShape2D_qsiq6")
 [node name="Jumpzone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jumpzone"]
-position = Vector2(24, -16)
+position = Vector2(21, -17)
 shape = SubResource("RectangleShape2D_pgj7w")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

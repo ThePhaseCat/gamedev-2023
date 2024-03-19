@@ -1,22 +1,20 @@
 extends CharacterBody2D
 
-var hp = 30
+var hp = 20
 
-var speed = 160
+var speed = 110
 var gravity = 0
 
 var is_moving_left = true
 
 @onready var ray = $RayCast2D
-@onready var ray2 = $RayCast2D2
-@onready var sprite = $AnimatedSprite2D
 
 var attackNodeInArea = false
 var attackingNode = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite.play("default")
+	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -39,34 +37,25 @@ func _process(delta):
 		if(attackingNode.attacking == true):
 			print("HP: " + str(hp))
 			hp = hp - 1
-			await get_tree().create_timer(2).timeout
+			await get_tree().create_timer(0.5).timeout
 
 func wait(duration):
 	await get_tree().create_timer(duration,false,false,true).timeout
 
 func detect_turn_around():
-	if(not ray.is_colliding()):
-		is_moving_left = !is_moving_left
-		scale.x = -scale.x
-	elif(ray2.is_colliding()):
-		if(ray2.get_collider().get_name() == "player"):
-			return #do nothing because turn around shouldn't happen with player
+	if(ray.is_colliding()):
+		if(ray.get_collider().get_name() == "player"):
+			return #do nothing because player
 		else:
+			#print("hi!")
 			is_moving_left = !is_moving_left
 			scale.x = -scale.x
-	else:
-		pass
-
-func isDead(health):
-	if health <= 0:
-		death()
 
 func _on_area_2d_body_entered(body):
 	var name = body.get_name()
 	if(name == "player"):
 		body.enemyJump()
-		hp = hp - 10
-		isDead(hp)
+		death()
 
 
 func _on_attack_check_area_entered(area):
