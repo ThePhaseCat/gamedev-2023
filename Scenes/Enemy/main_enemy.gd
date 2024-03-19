@@ -3,7 +3,8 @@ extends CharacterBody2D
 var hp = 20
 
 var speed = 50
-var gravity = 0
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var is_moving_left = true
 
@@ -21,7 +22,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(not is_on_floor()):
+		print("hi")
 		velocity.y += gravity * delta
+		print(str(velocity.y))
 	
 	if(is_moving_left == true):
 		velocity.x = speed
@@ -45,17 +48,20 @@ func wait(duration):
 	await get_tree().create_timer(duration,false,false,true).timeout
 
 func detect_turn_around():
-	if(not ray.is_colliding()):
-		is_moving_left = !is_moving_left
-		scale.x = -scale.x
-	elif(ray2.is_colliding()):
-		if(ray2.get_collider().get_name() == "player"):
-			return #do nothing because turn around shouldn't happen with player
-		else:
+	if(is_on_floor()):
+		if(not ray.is_colliding()):
 			is_moving_left = !is_moving_left
 			scale.x = -scale.x
+		elif(ray2.is_colliding()):
+			if(ray2.get_collider().get_name() == "player"):
+				return #do nothing because turn around shouldn't happen with player
+			else:
+				is_moving_left = !is_moving_left
+				scale.x = -scale.x
+		else:
+			pass
 	else:
-		pass
+		print("not on floor, can't turn around?")
 
 func _on_area_2d_body_entered(body):
 	var name = body.get_name()
