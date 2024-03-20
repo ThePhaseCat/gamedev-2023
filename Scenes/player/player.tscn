@@ -363,6 +363,7 @@ shape = SubResource("RectangleShape2D_hm2di")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -32)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 

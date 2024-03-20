@@ -3,7 +3,8 @@ extends CharacterBody2D
 var hp = 20
 
 var speed = 110
-var gravity = 0
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var is_moving_left = true
 
