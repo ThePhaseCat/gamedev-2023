@@ -87,3 +87,10 @@ func healthDecreaseFromProjectile():
 func _on_attack_check_area_exited(area):
 	attackNodeInArea = false
 	attackingNode = null
+
+
+func _on_player_check_body_entered(body):
+	var name = body.get_name()
+	#print(name)
+	if(name == "player"):
+		body.actualDeath()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdsfjyfo8mdx0"]
+[gd_scene load_steps=15 format=3 uid="uid://cdsfjyfo8mdx0"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/main_enemy.gd" id="1_ut4tm"]
 [ext_resource type="Texture2D" uid="uid://kh2cfq71govx" path="res://Assets/Enemies/raiju.png" id="2_vhjjh"]
@@ -70,6 +70,10 @@ size = Vector2(16, 8)
 [sub_resource type="CircleShape2D" id="CircleShape2D_drtat"]
 radius = 40.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pi106"]
+radius = 48.0
+height = 96.0
+
 [node name="mainEnemy" type="CharacterBody2D"]
 collision_layer = 5
 script = ExtResource("1_ut4tm")
@@ -105,6 +109,14 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackCheck"]
 shape = SubResource("CircleShape2D_drtat")
 
+[node name="PlayerCheck" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+shape = SubResource("CapsuleShape2D_pi106")
+
 [connection signal="body_entered" from="Jumpzone" to="." method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="attackCheck" to="." method="_on_attack_check_area_entered"]
 [connection signal="area_exited" from="attackCheck" to="." method="_on_attack_check_area_exited"]
+[connection signal="body_entered" from="PlayerCheck" to="." method="_on_player_check_body_entered"]
