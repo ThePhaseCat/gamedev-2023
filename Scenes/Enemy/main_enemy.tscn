@@ -68,11 +68,11 @@ height = 64.0
 size = Vector2(16, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_drtat"]
-radius = 40.0
+radius = 56.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pi106"]
-radius = 48.0
-height = 96.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mi5sq"]
+radius = 24.0
+height = 80.0
 
 [node name="mainEnemy" type="CharacterBody2D"]
 collision_layer = 5
@@ -114,7 +114,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
-shape = SubResource("CapsuleShape2D_pi106")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mi5sq")
 
 [connection signal="body_entered" from="Jumpzone" to="." method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="attackCheck" to="." method="_on_attack_check_area_entered"]
