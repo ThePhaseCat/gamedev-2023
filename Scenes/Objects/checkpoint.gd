@@ -2,11 +2,16 @@ extends Node2D
 
 var checkpointPosX: int = 0
 var checkpointPosY: int = 0
+@onready var sprite = $Sprite
+var isThisCheckpointActive: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	checkpointPosX = position.x
 	checkpointPosY = position.y
+	sprite.frame = 0
+	if(global.checkpointPosition == Vector2(checkpointPosX, checkpointPosY)):
+		sprite.frame = 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,4 +24,4 @@ func _on_area_2d_body_entered(body):
 	if(name == "player"):
 		global.checkpointPosition = Vector2(checkpointPosX, checkpointPosY)
 		global.hasPlayerHitCheckpoint = true
-		print("checkpoint hit!")
+		sprite.frame = 1
