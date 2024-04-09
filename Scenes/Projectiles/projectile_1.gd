@@ -19,6 +19,7 @@ func _process(delta):
 			collision = move_and_collide(Vector2(2, 0))
 			if(collision):
 				var name = collision.get_collider().name
+				#print(name)
 				if(name == "testEnemy"):
 					collision.get_collider().healthDecreaseFromProjectile()
 				queue_free()
@@ -47,3 +48,6 @@ func _unhandled_input(event):
 			#probably a sound cue or something
 		else:
 			pass #don't need anything here?
+
+func timeToDeath():
+	queue_free()

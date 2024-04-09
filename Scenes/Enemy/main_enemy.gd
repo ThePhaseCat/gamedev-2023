@@ -94,3 +94,12 @@ func _on_player_check_body_entered(body):
 	#print(name)
 	if(name == "player"):
 		body.actualDeath()
+
+
+func _on_attack_check_body_entered(body):
+	var name = body.get_name()
+	#print(name)
+	if(name == "Projectile1"):
+		hp = hp - 10
+		print("HP: " + str(hp))
+		body.timeToDeath()
