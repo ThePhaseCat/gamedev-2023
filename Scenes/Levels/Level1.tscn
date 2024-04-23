@@ -27,7 +27,7 @@ position = Vector2(279.5, 775)
 shape = SubResource("RectangleShape2D_o5rwu")
 
 [node name="Checkpoint" parent="." instance=ExtResource("4_hesje")]
-position = Vector2(2127, -653)
+position = Vector2(2128, -660)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 2488.0
