@@ -27,13 +27,6 @@ layer_0/tile_data = PackedInt32Array(720911, 65536, 1, 655375, 65536, 0, 720910,
 position = Vector2(1150.5, 775)
 shape = SubResource("RectangleShape2D_o5rwu")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 728.0
-offset_top = -440.0
-offset_right = 864.0
-offset_bottom = -417.0
-text = "put enemies here"
-
 [node name="Label2" type="Label" parent="."]
 offset_left = 2024.0
 offset_top = -1768.0
