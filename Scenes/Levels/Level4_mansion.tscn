@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2fwtsxg78t0"]
+
+[ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_so7wa"]
+[ext_resource type="TileSet" uid="uid://rulp84qa21sy" path="res://Tilesets/TestTileset/tileset_wood.tres" id="2_poqkw"]
+[ext_resource type="PackedScene" uid="uid://cb7p1p11xh3ws" path="res://Scenes/Objects/death_zone.tscn" id="3_myd6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5rwu"]
+size = Vector2(5507, 300)
+
+[node name="Level4" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_so7wa")]
+position = Vector2(184, 144)
+friction = 2000
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_poqkw")
+format = 2
+
+[node name="DeathZone" parent="." instance=ExtResource("3_myd6f")]
+
+[node name="CollisionShape2D" parent="DeathZone" index="0"]
+position = Vector2(1150.5, 775)
+shape = SubResource("RectangleShape2D_o5rwu")
+
+[editable path="DeathZone"]
