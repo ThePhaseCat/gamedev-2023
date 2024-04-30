@@ -22,9 +22,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(not is_on_floor()):
-		print("hi")
+		#print("hi")
 		velocity.y += gravity * delta
-		print(str(velocity.y))
+		#print(str(velocity.y))
 	
 	if(is_moving_left == true):
 		velocity.x = speed
@@ -40,7 +40,7 @@ func _process(delta):
 	
 	if(attackNodeInArea == true):
 		if(attackingNode.attacking == true):
-			print("HP: " + str(hp))
+			#print("HP: " + str(hp))
 			hp = hp - 1
 			await get_tree().create_timer(0.5).timeout
 
@@ -61,7 +61,8 @@ func detect_turn_around():
 		else:
 			pass
 	else:
-		print("not on floor, can't turn around?")
+		pass
+		#print("not on floor, can't turn around?")
 
 func _on_area_2d_body_entered(body):
 	var name = body.get_name()
@@ -82,8 +83,24 @@ func death():
 
 func healthDecreaseFromProjectile():
 	hp = hp - 5
-	print("hp + " + str(hp))
+	#print("hp + " + str(hp))
 
 func _on_attack_check_area_exited(area):
 	attackNodeInArea = false
 	attackingNode = null
+
+
+func _on_player_check_body_entered(body):
+	var name = body.get_name()
+	#print(name)
+	if(name == "player"):
+		body.actualDeath()
+
+
+func _on_attack_check_body_entered(body):
+	var name = body.get_name()
+	#print(name)
+	if(name == "Projectile1"):
+		hp = hp - 10
+		#print("HP: " + str(hp))
+		body.timeToDeath()

@@ -44,6 +44,9 @@ position = Vector2(-288, 208)
 [node name="Checkpoint" parent="." instance=ExtResource("6_0hgka")]
 position = Vector2(-80, 209)
 
+[node name="Checkpoint3" parent="." instance=ExtResource("6_0hgka")]
+position = Vector2(-201, 290)
+
 [node name="Coin5" parent="." instance=ExtResource("2_asokv")]
 position = Vector2(1707, 286)
 
@@ -70,9 +73,6 @@ position = Vector2(127, 196)
 
 [node name="mainEnemy2" parent="." instance=ExtResource("8_wefnl")]
 position = Vector2(240, 193)
-
-[node name="mainEnemy3" parent="." instance=ExtResource("8_wefnl")]
-position = Vector2(267, 108)
 
 [node name="flyingEnemy" parent="." instance=ExtResource("9_efufs")]
 position = Vector2(-2, 62)

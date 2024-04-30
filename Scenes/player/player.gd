@@ -223,14 +223,7 @@ func _on_player_area_2d_area_entered(area):
 		get_tree().reload_current_scene()
 
 func _on_player_area_2d_body_entered(body):
-	var name = body.get_name()
-	match name:
-		"testEnemy":
-			actualDeath()
-		"mainEnemy":
-			actualDeath()
-		"flyingEnemy":
-			actualDeath()
+	pass
 
 
 func actualDeath():

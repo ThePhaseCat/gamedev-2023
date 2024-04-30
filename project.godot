@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="gamedev-2023"
+config/name="Game Dev Club (TITLE HERE)"
 run/main_scene="res://Scenes/test.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"

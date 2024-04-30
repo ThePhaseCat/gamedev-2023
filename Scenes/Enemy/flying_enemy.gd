@@ -35,7 +35,7 @@ func _process(delta):
 	
 	if(attackNodeInArea == true):
 		if(attackingNode.attacking == true):
-			print("HP: " + str(hp))
+			#print("HP: " + str(hp))
 			hp = hp - 1
 			await get_tree().create_timer(0.5).timeout
 
@@ -60,16 +60,16 @@ func _on_area_2d_body_entered(body):
 func _on_attack_check_area_entered(area):
 	attackNodeInArea = true
 	attackingNode = area
-	#hp = hp - 1
-	#if(hp == 0):
-	#	death()
+	hp = hp - 1
+	if(hp == 0):
+		death()
 
 func death():
 	queue_free()
 
 func healthDecreaseFromProjectile():
 	hp = hp - 5
-	print("hp + " + str(hp))
+	#print("hp + " + str(hp))
 
 func _on_attack_check_area_exited(area):
 	attackNodeInArea = false
