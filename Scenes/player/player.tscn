@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dppr70up3djrx"]
+[gd_scene load_steps=38 format=3 uid="uid://dppr70up3djrx"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_5gkox"]
 [ext_resource type="Texture2D" uid="uid://bdeyhc2pcadqo" path="res://icon.svg" id="1_w5ucl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/player/PlayerSwordAttack.gd" id="4_cwttp"]
 [ext_resource type="Texture2D" uid="uid://d7modwpw4afu" path="res://Assets/Sprites/scratch_sprite.png" id="4_uoh28"]
 [ext_resource type="Texture2D" uid="uid://dl8ix5cn4h212" path="res://Assets/Sprites/Fox/scratch.png" id="5_lonei"]
+[ext_resource type="PackedScene" uid="uid://c362tnmmyx3h4" path="res://Scenes/UI/pause_menu.tscn" id="9_1258w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_70o57"]
 atlas = ExtResource("3_m4qoi")
@@ -413,6 +414,8 @@ one_shot = true
 
 [node name="projectile_fire_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_1258w")]
 
 [connection signal="area_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_area_entered"]
 [connection signal="body_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_body_entered"]

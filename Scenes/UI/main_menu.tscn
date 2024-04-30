@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmo2iw327yl6u"]
+
+[ext_resource type="Script" path="res://Scenes/UI/main_menu.gd" id="1_8t47u"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8t47u")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 8.0
+offset_right = 67.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "GAME TITLE HERE"
+
+[node name="buttonVBOX" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.5
+offset_top = -110.0
+offset_right = 49.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="buttonVBOX"]
+layout_mode = 2
+text = "Start"
+
+[node name="LevelSelectButton" type="Button" parent="buttonVBOX"]
+layout_mode = 2
+text = "Level Select"
+
+[node name="ExitButton" type="Button" parent="buttonVBOX"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="buttonVBOX/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="buttonVBOX/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="buttonVBOX/ExitButton" to="." method="_on_exit_button_pressed"]

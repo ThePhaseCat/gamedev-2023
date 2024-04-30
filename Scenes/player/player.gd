@@ -56,7 +56,11 @@ var projectile1 = preload("res://Scenes/Projectiles/projectile_1.tscn")
 @onready var dash_again_timer = $dash_again_timer
 @onready var projectile_fire_timer = $projectile_fire_timer
 
+#menu
+@onready var pause_menu = $PauseMenu
+
 func _ready():
+	pause_menu.isPauseActive = false
 	scratchSprite.hide()
 	if(global.hasPlayerHitCheckpoint == true):
 		position = global.checkpointPosition
@@ -135,6 +139,9 @@ func _unhandled_input(event):
 	if(Input.is_action_just_pressed("ranged_attack")):
 		if(canShootProjectile == true):
 			projectileAttack1()
+	
+	if(Input.is_action_just_pressed("pause")):
+		pause_menu.show_pause()
 
 func handle_gravity(delta):
 	if not is_on_floor():
