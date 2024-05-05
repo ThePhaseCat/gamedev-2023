@@ -1,11 +1,70 @@
-[gd_scene load_steps=9 format=3 uid="uid://c23krwfav0coe"]
+[gd_scene load_steps=19 format=3 uid="uid://c23krwfav0coe"]
 
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_m0ewt"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level2_forest.gd" id="1_x4m6x"]
 [ext_resource type="TileSet" uid="uid://bgs2vnlh4kcqb" path="res://Tilesets/TestTileset/tileset_grass.tres" id="2_0dmwe"]
+[ext_resource type="Texture2D" uid="uid://2hm6thaq0yl3" path="res://Assets/Sprites/tilesets/Waterfall.png" id="2_1stb0"]
 [ext_resource type="PackedScene" uid="uid://cb7p1p11xh3ws" path="res://Scenes/Objects/death_zone.tscn" id="3_4baql"]
 [ext_resource type="PackedScene" uid="uid://plnrnigon5r0" path="res://Scenes/Objects/checkpoint.tscn" id="4_oaef5"]
 [ext_resource type="PackedScene" uid="uid://cdsfjyfo8mdx0" path="res://Scenes/Enemy/main_enemy.tscn" id="5_2cqn5"]
 [ext_resource type="Texture2D" uid="uid://dpu6tsgvsds5n" path="res://Assets/Other/bridge.png" id="6_f26ir"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjkp7"]
+atlas = ExtResource("2_1stb0")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uevci"]
+atlas = ExtResource("2_1stb0")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ximx"]
+atlas = ExtResource("2_1stb0")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abmwe"]
+atlas = ExtResource("2_1stb0")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfdqs"]
+atlas = ExtResource("2_1stb0")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jthy"]
+atlas = ExtResource("2_1stb0")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqkni"]
+atlas = ExtResource("2_1stb0")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2d56e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjkp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uevci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ximx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abmwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfdqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jthy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqkni")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5rwu"]
 size = Vector2(5507, 300)
@@ -14,6 +73,13 @@ size = Vector2(5507, 300)
 size = Vector2(192, 10)
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_x4m6x")
+
+[node name="waterfall" type="AnimatedSprite2D" parent="."]
+position = Vector2(846, -92)
+scale = Vector2(8.16667, 29.6667)
+sprite_frames = SubResource("SpriteFrames_2d56e")
+frame_progress = 0.894684
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_0dmwe")
@@ -29,13 +95,6 @@ friction = 2000
 [node name="CollisionShape2D" parent="DeathZone" index="0"]
 position = Vector2(1150.5, 775)
 shape = SubResource("RectangleShape2D_o5rwu")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 760.0
-offset_top = 40.0
-offset_right = 937.0
-offset_bottom = 63.0
-text = "over water"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 1272.0
