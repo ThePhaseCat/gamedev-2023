@@ -1,0 +1,7 @@
+[gd_resource type="TileSet" format=3 uid="uid://crf3ed8ef143p"]
+
+[resource]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
