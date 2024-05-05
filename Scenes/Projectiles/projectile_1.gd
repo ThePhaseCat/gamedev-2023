@@ -13,30 +13,31 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(moving == true):
-		if(dir == "right"):
-			move_and_collide(Vector2(2,0))
-			collision = move_and_collide(Vector2(2, 0))
-			if(collision):
-				var name = collision.get_collider().name
-				#print(name)
-				if(name == "testEnemy"):
-					collision.get_collider().healthDecreaseFromProjectile()
-				queue_free()
-		elif(dir == "left"):
-			move_and_collide(Vector2(-2,0))
-			collision = move_and_collide(Vector2(-2, 0))
-			if(collision):
-				var name = collision.get_collider().name
-				if(name == "testEnemy"):
-					collision.get_collider().healthDecreaseFromProjectile()
-				queue_free()
+	if(global.pauseOn == false):
+		if(moving == true):
+			if(dir == "right"):
+				move_and_collide(Vector2(2,0))
+				collision = move_and_collide(Vector2(2, 0))
+				if(collision):
+					var name = collision.get_collider().name
+					#print(name)
+					if(name == "testEnemy"):
+						collision.get_collider().healthDecreaseFromProjectile()
+					queue_free()
+			elif(dir == "left"):
+				move_and_collide(Vector2(-2,0))
+				collision = move_and_collide(Vector2(-2, 0))
+				if(collision):
+					var name = collision.get_collider().name
+					if(name == "testEnemy"):
+						collision.get_collider().healthDecreaseFromProjectile()
+					queue_free()
+			else:
+				print("this should not print")
+		elif(moving == false):
+			velocity = Vector2.ZERO
 		else:
-			print("this should not print")
-	elif(moving == false):
-		velocity = Vector2.ZERO
-	else:
-		pass
+			pass
 
 func _unhandled_input(event):
 	if(Input.is_action_just_pressed("ability_thing")):

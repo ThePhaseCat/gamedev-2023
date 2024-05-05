@@ -29,7 +29,8 @@ func _process(delta):
 	#velocity.x = speed if is_moving_left else -speed
 	detect_turn_around()
 	
-	move_and_slide()
+	if(global.pauseOn == false):
+		move_and_slide()
 	
 	if(hp <= 0):
 		death()

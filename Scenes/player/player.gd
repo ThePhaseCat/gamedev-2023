@@ -89,7 +89,8 @@ func _physics_process(delta):
 	var was_on_wall = is_on_wall_only()
 	if was_on_wall:
 		was_wall_normal = get_wall_normal()
-	move_and_slide()
+	if(global.pauseOn == false):
+		move_and_slide()
 	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
 	if just_left_ledge:
 		coyote_jump_timer.start()
@@ -140,7 +141,7 @@ func _unhandled_input(event):
 		if(canShootProjectile == true):
 			projectileAttack1()
 	
-	if(Input.is_action_just_pressed("pause")):
+	if(Input.is_action_just_pressed("pause") and is_on_floor()):
 		pause_menu.show_pause()
 
 func handle_gravity(delta):
