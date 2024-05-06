@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c362tnmmyx3h4"]
+[gd_scene load_steps=3 format=3 uid="uid://c362tnmmyx3h4"]
 
 [ext_resource type="Script" path="res://Scenes/UI/pause_menu.gd" id="1_kvkub"]
+[ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="2_rs22x"]
 
 [node name="PauseMenu" type="Control"]
 z_index = 10
@@ -45,15 +46,18 @@ grow_vertical = 2
 
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_rs22x")
 text = "Resume"
 
 [node name="RetryButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_rs22x")
 text = "Retry"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 z_as_relative = false
 layout_mode = 2
+theme = ExtResource("2_rs22x")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

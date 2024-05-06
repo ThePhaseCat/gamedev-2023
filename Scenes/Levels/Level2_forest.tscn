@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://c23krwfav0coe"]
+[gd_scene load_steps=24 format=3 uid="uid://c23krwfav0coe"]
 
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_m0ewt"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level2_forest.gd" id="1_x4m6x"]
 [ext_resource type="TileSet" uid="uid://bgs2vnlh4kcqb" path="res://Tilesets/TestTileset/tileset_grass.tres" id="2_0dmwe"]
 [ext_resource type="Texture2D" uid="uid://2hm6thaq0yl3" path="res://Assets/Sprites/tilesets/Waterfall.png" id="2_1stb0"]
+[ext_resource type="PackedScene" uid="uid://cd3pjmvxkf4ol" path="res://background_scenes/background_level1_2.tscn" id="2_c5r1c"]
 [ext_resource type="PackedScene" uid="uid://cb7p1p11xh3ws" path="res://Scenes/Objects/death_zone.tscn" id="3_4baql"]
 [ext_resource type="Texture2D" uid="uid://dj08uia7wmnp7" path="res://Assets/Sprites/tilesets/tree_tileset.png" id="4_btag3"]
 [ext_resource type="PackedScene" uid="uid://plnrnigon5r0" path="res://Scenes/Objects/checkpoint.tscn" id="4_oaef5"]
@@ -557,11 +558,13 @@ size = Vector2(192, 10)
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_x4m6x")
 
+[node name="background" parent="." instance=ExtResource("2_c5r1c")]
+
 [node name="waterfall" type="AnimatedSprite2D" parent="."]
 position = Vector2(846, -92)
 scale = Vector2(8.16667, 29.6667)
 sprite_frames = SubResource("SpriteFrames_2d56e")
-frame_progress = 0.867658
+frame_progress = 0.806625
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_0dmwe")

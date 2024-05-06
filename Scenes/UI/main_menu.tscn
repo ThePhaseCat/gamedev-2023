@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmo2iw327yl6u"]
+[gd_scene load_steps=5 format=3 uid="uid://dmo2iw327yl6u"]
 
 [ext_resource type="Script" path="res://Scenes/UI/main_menu.gd" id="1_8t47u"]
+[ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="2_rfx77"]
+
+[sub_resource type="Gradient" id="Gradient_440cu"]
+offsets = PackedFloat32Array(0, 0.525114, 1)
+colors = PackedColorArray(0.743299, 0.461133, 0.10573, 1, 0, 0, 0, 1, 0.39125, 0.815155, 0.145373, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d7ck7"]
+gradient = SubResource("Gradient_440cu")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +18,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8t47u")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 184.0
+texture = SubResource("GradientTexture2D_d7ck7")
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1
@@ -21,6 +35,7 @@ offset_top = 8.0
 offset_right = 67.5
 offset_bottom = 31.0
 grow_horizontal = 2
+theme = ExtResource("2_rfx77")
 text = "GAME TITLE HERE"
 
 [node name="buttonVBOX" type="VBoxContainer" parent="."]
@@ -39,14 +54,17 @@ grow_vertical = 0
 
 [node name="StartButton" type="Button" parent="buttonVBOX"]
 layout_mode = 2
+theme = ExtResource("2_rfx77")
 text = "Start"
 
 [node name="LevelSelectButton" type="Button" parent="buttonVBOX"]
 layout_mode = 2
+theme = ExtResource("2_rfx77")
 text = "Level Select"
 
 [node name="ExitButton" type="Button" parent="buttonVBOX"]
 layout_mode = 2
+theme = ExtResource("2_rfx77")
 text = "Exit"
 
 [connection signal="pressed" from="buttonVBOX/StartButton" to="." method="_on_start_button_pressed"]

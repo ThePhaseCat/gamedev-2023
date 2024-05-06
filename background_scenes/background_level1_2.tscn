@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd3pjmvxkf4ol"]
+
+[ext_resource type="Texture2D" uid="uid://lwrorvcq1hih" path="res://Assets/Sprites/background/level2_bg.png" id="1_2pwy4"]
+
+[sub_resource type="Gradient" id="Gradient_mw4yw"]
+colors = PackedColorArray(0.435294, 0.639216, 0.294118, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_61p8m"]
+gradient = SubResource("Gradient_mw4yw")
+fill_from = Vector2(0.504274, 0.978632)
+fill_to = Vector2(0.461538, 0)
+
+[node name="background" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -360.0
+offset_top = -728.0
+offset_right = 4024.0
+offset_bottom = 720.0
+texture = SubResource("GradientTexture2D_61p8m")
+
+[node name="bgTree" type="Sprite2D" parent="."]
+position = Vector2(2064, -64)
+texture = ExtResource("1_2pwy4")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
+
+[node name="bgTree2" type="Sprite2D" parent="."]
+position = Vector2(1408, -64)
+texture = ExtResource("1_2pwy4")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
+
+[node name="bgTree3" type="Sprite2D" parent="."]
+position = Vector2(744, -64)
+texture = ExtResource("1_2pwy4")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
+
+[node name="bgTree4" type="Sprite2D" parent="."]
+position = Vector2(24, -32)
+texture = ExtResource("1_2pwy4")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
+
+[node name="bgTree5" type="Sprite2D" parent="."]
+position = Vector2(2720, 8)
+texture = ExtResource("1_2pwy4")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
+
+[node name="bgTree6" type="Sprite2D" parent="."]
+position = Vector2(3368, 176)
+texture = ExtResource("1_2pwy4")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 640)
