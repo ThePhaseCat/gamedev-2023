@@ -24,9 +24,11 @@ func _process(delta):
 				collision = move_and_collide(Vector2(2, 0))
 				if(collision):
 					var name = collision.get_collider().name
-					#print(name)
+					print(name)
 					if(name == "testEnemy"):
 						collision.get_collider().healthDecreaseFromProjectile()
+					elif(name == "player"):
+						return #do nothing
 					queue_free()
 			elif(dir == "left"):
 				move_and_collide(Vector2(-2,0))
@@ -35,6 +37,8 @@ func _process(delta):
 					var name = collision.get_collider().name
 					if(name == "testEnemy"):
 						collision.get_collider().healthDecreaseFromProjectile()
+					elif(name == "player"):
+						return #do nothing
 					queue_free()
 			else:
 				print("this should not print")
