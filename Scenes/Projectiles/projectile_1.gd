@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
+
+
 var dir = "right"
 
 var collision
 
 var moving = true
 
+@onready var sprite = $AnimatedSprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sprite.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
