@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b42h27ctj48qq"]
+[gd_scene load_steps=12 format=3 uid="uid://b42h27ctj48qq"]
 
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_b5jik"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level1.gd" id="1_gowbf"]
 [ext_resource type="PackedScene" uid="uid://cd3pjmvxkf4ol" path="res://background_scenes/background_level1_2.tscn" id="1_qhmlb"]
 [ext_resource type="TileSet" uid="uid://bgs2vnlh4kcqb" path="res://Tilesets/TestTileset/tileset_grass.tres" id="2_raca5"]
 [ext_resource type="PackedScene" uid="uid://plnrnigon5r0" path="res://Scenes/Objects/checkpoint.tscn" id="4_hesje"]
@@ -8,11 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://cdsfjyfo8mdx0" path="res://Scenes/Enemy/main_enemy.tscn" id="5_ne34c"]
 [ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="6_4rk4t"]
 [ext_resource type="FontFile" uid="uid://1jvndjxqmjaw" path="res://Assets/Sprites/extra_assets/Crang.ttf" id="7_lwd2k"]
+[ext_resource type="PackedScene" uid="uid://dqurcegjctt3m" path="res://Scenes/other/level_switch.tscn" id="9_er2ja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5rwu"]
 size = Vector2(3765, 300)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_gowbf")
 
 [node name="background" parent="." instance=ExtResource("1_qhmlb")]
 position = Vector2(-40, 152)
@@ -152,6 +155,11 @@ position = Vector2(2128, -660)
 
 [node name="mainEnemy" parent="." instance=ExtResource("5_ne34c")]
 position = Vector2(2648, 48)
+
+[node name="levelSwitch" parent="." instance=ExtResource("9_er2ja")]
+position = Vector2(3072, -32)
+
+[connection signal="switchLevel" from="levelSwitch" to="." method="_on_level_switch_switch_level"]
 
 [editable path="background"]
 [editable path="DeathZone"]

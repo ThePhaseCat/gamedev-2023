@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmo2iw327yl6u"]
+[gd_scene load_steps=5 format=3 uid="uid://bh45ogycylk66"]
 
-[ext_resource type="Script" path="res://Scenes/UI/main_menu.gd" id="1_8t47u"]
-[ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="2_rfx77"]
+[ext_resource type="Script" path="res://Scenes/UI/win_screen.gd" id="1_fy6da"]
+[ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="2_8rytq"]
 
 [sub_resource type="Gradient" id="Gradient_440cu"]
 offsets = PackedFloat32Array(0, 0.525114, 1)
@@ -10,14 +10,14 @@ colors = PackedColorArray(0.743299, 0.461133, 0.10573, 1, 0, 0, 0, 1, 0.39125, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d7ck7"]
 gradient = SubResource("Gradient_440cu")
 
-[node name="MainMenu" type="Control"]
+[node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8t47u")
+script = ExtResource("1_fy6da")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 0
@@ -35,8 +35,8 @@ offset_top = 8.0
 offset_right = 67.5
 offset_bottom = 31.0
 grow_horizontal = 2
-theme = ExtResource("2_rfx77")
-text = "Fox Hunt"
+theme = ExtResource("2_8rytq")
+text = "You did it!"
 horizontal_alignment = 1
 
 [node name="buttonVBOX" type="VBoxContainer" parent="."]
@@ -53,21 +53,9 @@ offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="StartButton" type="Button" parent="buttonVBOX"]
-layout_mode = 2
-theme = ExtResource("2_rfx77")
-text = "Start"
-
-[node name="LevelSelectButton" type="Button" parent="buttonVBOX"]
-layout_mode = 2
-theme = ExtResource("2_rfx77")
-text = "Level Select"
-
 [node name="ExitButton" type="Button" parent="buttonVBOX"]
 layout_mode = 2
-theme = ExtResource("2_rfx77")
-text = "Exit"
+theme = ExtResource("2_8rytq")
+text = "Return to Menu"
 
-[connection signal="pressed" from="buttonVBOX/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="buttonVBOX/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="buttonVBOX/ExitButton" to="." method="_on_exit_button_pressed"]

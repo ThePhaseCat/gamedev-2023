@@ -17,8 +17,7 @@ func _on_exit_button_pressed():
 
 
 func _on_start_button_pressed():
-	#cutscene before going to first level?
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/Levels/Level1.tscn")
 
 
 func _on_level_select_button_pressed():

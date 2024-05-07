@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c23krwfav0coe"]
+[gd_scene load_steps=25 format=3 uid="uid://c23krwfav0coe"]
 
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_m0ewt"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level2_forest.gd" id="1_x4m6x"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cdsfjyfo8mdx0" path="res://Scenes/Enemy/main_enemy.tscn" id="5_2cqn5"]
 [ext_resource type="TileSet" uid="uid://rmmsx4krwfwn" path="res://Tilesets/TestTileset/tileset_leaves.tres" id="5_rte3t"]
 [ext_resource type="Texture2D" uid="uid://dpu6tsgvsds5n" path="res://Assets/Other/bridge.png" id="6_f26ir"]
+[ext_resource type="PackedScene" uid="uid://dqurcegjctt3m" path="res://Scenes/other/level_switch.tscn" id="12_s1u7d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjkp7"]
 atlas = ExtResource("2_1stb0")
@@ -619,5 +620,10 @@ texture = ExtResource("6_f26ir")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(664, -75)
 shape = SubResource("RectangleShape2D_hj828")
+
+[node name="levelSwitch" parent="." instance=ExtResource("12_s1u7d")]
+position = Vector2(3872, 72)
+
+[connection signal="switchLevel" from="levelSwitch" to="." method="_on_level_switch_switch_level"]
 
 [editable path="DeathZone"]
