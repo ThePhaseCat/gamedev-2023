@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh45ogycylk66"]
+
+[ext_resource type="Script" path="res://Scenes/UI/win_screen.gd" id="1_fy6da"]
+[ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="2_8rytq"]
+
+[sub_resource type="Gradient" id="Gradient_440cu"]
+offsets = PackedFloat32Array(0, 0.525114, 1)
+colors = PackedColorArray(0.743299, 0.461133, 0.10573, 1, 0, 0, 0, 1, 0.39125, 0.815155, 0.145373, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d7ck7"]
+gradient = SubResource("Gradient_440cu")
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fy6da")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 328.0
+offset_bottom = 184.0
+texture = SubResource("GradientTexture2D_d7ck7")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 8.0
+offset_right = 67.5
+offset_bottom = 31.0
+grow_horizontal = 2
+theme = ExtResource("2_8rytq")
+text = "You did it!"
+horizontal_alignment = 1
+
+[node name="buttonVBOX" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.5
+offset_top = -110.0
+offset_right = 49.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ExitButton" type="Button" parent="buttonVBOX"]
+layout_mode = 2
+theme = ExtResource("2_8rytq")
+text = "Return to Menu"
+
+[connection signal="pressed" from="buttonVBOX/ExitButton" to="." method="_on_exit_button_pressed"]

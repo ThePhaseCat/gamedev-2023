@@ -8,13 +8,14 @@ var gravity = 0
 var is_moving_left = true
 
 @onready var ray = $RayCast2D
+@onready var sprite = $AnimatedSprite2D
 
 var attackNodeInArea = false
 var attackingNode = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sprite.play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,7 +29,8 @@ func _process(delta):
 	#velocity.x = speed if is_moving_left else -speed
 	detect_turn_around()
 	
-	move_and_slide()
+	if(global.pauseOn == false):
+		move_and_slide()
 	
 	if(hp <= 0):
 		death()
@@ -74,3 +76,18 @@ func healthDecreaseFromProjectile():
 func _on_attack_check_area_exited(area):
 	attackNodeInArea = false
 	attackingNode = null
+
+func _on_attack_check_body_entered(body):
+	var name = body.get_name()
+	#print(name)
+	if(name == "Projectile1"):
+		hp = hp - 10
+		#print("HP: " + str(hp))
+		body.timeToDeath()
+
+
+func _on_player_check_body_entered(body):
+	var name = body.get_name()
+	#print(name)
+	if(name == "player"):
+		body.actualDeath()

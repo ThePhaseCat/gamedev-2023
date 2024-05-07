@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdxn4cr6yyes5"]
+[gd_scene load_steps=3 format=3 uid="uid://cdxn4cr6yyes5"]
 
 [ext_resource type="Script" path="res://Scenes/player/hud.gd" id="1_57537"]
+[ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="2_ucoc4"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_57537")
 
 [node name="coinLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 69.0
+offset_bottom = 31.0
+theme = ExtResource("2_ucoc4")
 text = "Coins: "

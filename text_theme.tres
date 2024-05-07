@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bkipgqa3ph74w"]
+
+[ext_resource type="FontFile" uid="uid://1jvndjxqmjaw" path="res://Assets/Sprites/extra_assets/Crang.ttf" id="1_j1k41"]
+
+[resource]
+default_font = ExtResource("1_j1k41")
