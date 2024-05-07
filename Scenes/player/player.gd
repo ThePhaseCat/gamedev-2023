@@ -55,11 +55,15 @@ var projectile1 = preload("res://Scenes/Projectiles/projectile_1.tscn")
 @onready var dash_timer = $dash_timer
 @onready var dash_again_timer = $dash_again_timer
 @onready var projectile_fire_timer = $projectile_fire_timer
+@onready var frameStop = $frameStop
+var frameReady: bool = false
 
 #menu
 @onready var pause_menu = $PauseMenu
 
 func _ready():
+	frameStop.start()
+	position = global.playerPosition
 	pause_menu.isPauseActive = false
 	scratchSprite.hide()
 	if(global.hasPlayerHitCheckpoint == true):
@@ -68,51 +72,61 @@ func _ready():
 		pass
 
 func _physics_process(delta):
-	#update global player position
-	global.playerPosition = position
-	
-	# Add the gravity.
-	handle_gravity(delta)
-	
-	#handle wall jump and jump
-	handle_wallJump()
-	handle_jump()
-	
-	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_axis("move_left", "move_right")
-	handle_acceleration(direction, delta)
-	handle_air_acceleration(direction, delta)
-	apply_friction(direction, delta)
-	apply_air_resistance(direction, delta)
-	
-	var was_on_floor = is_on_floor()
-	var was_on_wall = is_on_wall_only()
-	if was_on_wall:
-		was_wall_normal = get_wall_normal()
-	if(global.pauseOn == false):
-		move_and_slide()
-	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
-	if just_left_ledge:
-		coyote_jump_timer.start()
-	just_wall_jumped = false
-	var just_left_wall = was_on_wall and not is_on_wall()
-	if just_left_wall:
-		wall_jump_timer.start()
-		timesWallJumped = timesWallJumped - 1
-	
-	handle_animations(direction)
-	
-	#sprite.flip_h = velocity.x < 0
+	if(position == Vector2(2128, -660)):
+		if(global.hasPlayerHitCheckpoint == true):
+			position = global.checkpointPosition
+		else:
+			print("HI")
+			position = Vector2(188, 144)
+	if(frameReady):
+		#update global player position
+		#print(global.playerPosition)
+		global.playerPosition = position
+		
+		# Add the gravity.
+		handle_gravity(delta)
+		
+		#handle wall jump and jump
+		handle_wallJump()
+		handle_jump()
+		
+		# Get the input direction and handle the movement/deceleration.
+		var direction = Input.get_axis("move_left", "move_right")
+		handle_acceleration(direction, delta)
+		handle_air_acceleration(direction, delta)
+		apply_friction(direction, delta)
+		apply_air_resistance(direction, delta)
+		
+		var was_on_floor = is_on_floor()
+		var was_on_wall = is_on_wall_only()
+		if was_on_wall:
+			was_wall_normal = get_wall_normal()
+		if(global.pauseOn == false):
+			move_and_slide()
+		var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
+		if just_left_ledge:
+			coyote_jump_timer.start()
+		just_wall_jumped = false
+		var just_left_wall = was_on_wall and not is_on_wall()
+		if just_left_wall:
+			wall_jump_timer.start()
+			timesWallJumped = timesWallJumped - 1
+		
+		handle_animations(direction)
+		
+		#sprite.flip_h = velocity.x < 0
 
 func _unhandled_input(event):
 	if(Input.is_action_just_pressed("move_left")):
-		playerFacingDirection = "left"
-		sprite.offset = Vector2(-7, 0)
-		sprite.flip_h = true
+		if(frameReady):
+			playerFacingDirection = "left"
+			sprite.offset = Vector2(-7, 0)
+			sprite.flip_h = true
 	if(Input.is_action_just_pressed("move_right")):
-		playerFacingDirection = "right"
-		sprite.offset = Vector2.ZERO
-		sprite.flip_h = false
+		if(frameReady):
+			playerFacingDirection = "right"
+			sprite.offset = Vector2.ZERO
+			sprite.flip_h = false
 	
 	if(Input.is_action_just_pressed("attack")):
 		if(checks()): #must return true
@@ -292,3 +306,7 @@ func _on_dash_again_timer_timeout():
 
 func _on_projectile_fire_timer_timeout():
 	canShootProjectile = true
+
+
+func _on_frame_stop_timeout():
+	frameReady = true

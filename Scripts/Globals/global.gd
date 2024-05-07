@@ -2,7 +2,7 @@ extends Node
 
 #test
 
-var playerPosition = Vector2.ZERO
+var playerPosition = Vector2(184, 152)
 
 var amountOfCoins = 0
 

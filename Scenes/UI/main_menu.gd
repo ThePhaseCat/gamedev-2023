@@ -17,9 +17,12 @@ func _on_exit_button_pressed():
 
 
 func _on_start_button_pressed():
+	Fade.crossfade_prepare(1, "Diamond", false, false)
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level1.tscn")
+	Fade.crossfade_execute()
 
 
 func _on_level_select_button_pressed():
-	#go to level select ui
+	Fade.crossfade_prepare(1, "Diamond", false, false)
 	get_tree().change_scene_to_file("res://Scenes/UI/level_select.tscn")
+	Fade.crossfade_execute()

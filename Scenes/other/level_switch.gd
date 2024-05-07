@@ -17,4 +17,6 @@ func _on_area_2d_body_entered(body):
 	var name = body.get_name()
 	#print(name)
 	if(name == "player"):
+		global.playerPosition = Vector2(188, 144)
+		global.hasPlayerHitCheckpoint = false
 		emit_signal("switchLevel")

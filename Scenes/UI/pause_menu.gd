@@ -40,4 +40,6 @@ func _on_quit_button_pressed():
 	if(isPauseActive == true):
 		global.pauseOn = false
 		isPauseActive = false
+		Fade.crossfade_prepare(1, "Diamond", false, false)
 		get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
+		Fade.crossfade_execute()
