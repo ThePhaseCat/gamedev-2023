@@ -76,7 +76,7 @@ func _physics_process(delta):
 		if(global.hasPlayerHitCheckpoint == true):
 			position = global.checkpointPosition
 		else:
-			print("HI")
+			#print("HI")
 			position = Vector2(188, 144)
 	if(frameReady):
 		#update global player position
