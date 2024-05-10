@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dppr70up3djrx"]
+[gd_scene load_steps=43 format=3 uid="uid://dppr70up3djrx"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_5gkox"]
 [ext_resource type="Texture2D" uid="uid://bdeyhc2pcadqo" path="res://icon.svg" id="1_w5ucl"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://d7modwpw4afu" path="res://Assets/Sprites/scratch_sprite.png" id="4_uoh28"]
 [ext_resource type="Texture2D" uid="uid://dl8ix5cn4h212" path="res://Assets/Sprites/Fox/scratch.png" id="5_lonei"]
 [ext_resource type="PackedScene" uid="uid://c362tnmmyx3h4" path="res://Scenes/UI/pause_menu.tscn" id="9_1258w"]
+[ext_resource type="AudioStream" uid="uid://bxn4osv8n0fll" path="res://audio/sounds/shoot.wav" id="10_3ivqo"]
+[ext_resource type="AudioStream" uid="uid://cyfur5s6x5kyi" path="res://audio/sounds/jump.wav" id="11_i02gu"]
+[ext_resource type="AudioStream" uid="uid://dkd6u3kv3rb4m" path="res://audio/sounds/jump_2.wav" id="12_grgka"]
+[ext_resource type="AudioStream" uid="uid://dsj8wv2t43sdj" path="res://audio/sounds/swipe.wav" id="12_pfcmd"]
+[ext_resource type="AudioStream" uid="uid://bak6gastfld8o" path="res://audio/sounds/dash.wav" id="13_ad3jq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_70o57"]
 atlas = ExtResource("3_m4qoi")
@@ -426,6 +431,21 @@ offset_bottom = 80.0
 [node name="frameStop" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="shootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_3ivqo")
+
+[node name="jumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_i02gu")
+
+[node name="jump2Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_grgka")
+
+[node name="swipeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_pfcmd")
+
+[node name="dashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ad3jq")
 
 [connection signal="area_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_area_entered"]
 [connection signal="body_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_body_entered"]

@@ -67,6 +67,7 @@ func _on_attack_check_area_entered(area):
 		death()
 
 func death():
+	DeathSoundManager.play()
 	queue_free()
 
 func healthDecreaseFromProjectile():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7c1orxcj6jvq"]
+[gd_scene load_steps=13 format=3 uid="uid://c7c1orxcj6jvq"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level3_mountain_cave.gd" id="1_arsxg"]
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_g84he"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdsfjyfo8mdx0" path="res://Scenes/Enemy/main_enemy.tscn" id="5_2hu48"]
 [ext_resource type="PackedScene" uid="uid://do5bie2pf6jll" path="res://Scenes/Enemy/flying_enemy.tscn" id="6_bfwnm"]
 [ext_resource type="PackedScene" uid="uid://dqurcegjctt3m" path="res://Scenes/other/level_switch.tscn" id="8_8grtx"]
+[ext_resource type="PackedScene" uid="uid://da80tquw0i6eh" path="res://Scenes/coin.tscn" id="9_t8po0"]
 
 [sub_resource type="Gradient" id="Gradient_u1vvq"]
 colors = PackedColorArray(0, 1, 1, 1, 0.41598, 0.41598, 0.41598, 1)
@@ -39,6 +40,13 @@ offset_right = 1552.0
 offset_bottom = -224.0
 color = Color(0.141176, 0.141176, 0.141176, 1)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 2072.0
+offset_top = -1680.0
+offset_right = 2664.0
+offset_bottom = -1168.0
+color = Color(0, 0, 0, 1)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_it7rf")
 format = 2
@@ -53,15 +61,6 @@ friction = 2000
 [node name="CollisionShape2D" parent="DeathZone" index="0"]
 position = Vector2(1150.5, 775)
 shape = SubResource("RectangleShape2D_o5rwu")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 2024.0
-offset_top = -1768.0
-offset_right = 2202.0
-offset_bottom = -1693.0
-text = "drop down to end level
-
-fall into mansion level?"
 
 [node name="Checkpoint" parent="." instance=ExtResource("4_b64l7")]
 position = Vector2(1144, -516)
@@ -80,6 +79,49 @@ position = Vector2(1496, -1016)
 
 [node name="levelSwitch" parent="." instance=ExtResource("8_8grtx")]
 position = Vector2(2096, -1464)
+
+[node name="Coin" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(456, -240)
+
+[node name="Coin2" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(568, -264)
+
+[node name="Coin3" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(920, -336)
+
+[node name="Coin4" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(944, -336)
+
+[node name="Coin5" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1472, -552)
+
+[node name="Coin6" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1472, -608)
+
+[node name="Coin7" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1472, -728)
+
+[node name="Coin8" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1728, -1072)
+
+[node name="Coin9" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1872, -1120)
+
+[node name="Coin10" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1912, -1392)
+
+[node name="Coin11" parent="." instance=ExtResource("9_t8po0")]
+visible = false
+position = Vector2(1888, -1392)
+
+[node name="Coin12" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1656, -1536)
+
+[node name="Coin13" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1728, -1640)
+
+[node name="Coin14" parent="." instance=ExtResource("9_t8po0")]
+position = Vector2(1880, -1728)
 
 [connection signal="switchLevel" from="levelSwitch" to="." method="_on_level_switch_switch_level"]
 

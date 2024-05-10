@@ -8,6 +8,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var is_moving_left = true
 
+@onready var deathSound = $deathSound
+
 @onready var ray = $RayCast2D
 @onready var ray2 = $RayCast2D2
 @onready var sprite = $AnimatedSprite2D
@@ -80,6 +82,8 @@ func _on_attack_check_area_entered(area):
 	#	death()
 
 func death():
+	DeathSoundManager.play()
+	#deathSound.play()
 	queue_free()
 
 func healthDecreaseFromProjectile():

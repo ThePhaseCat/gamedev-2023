@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2fwtsxg78t0"]
+[gd_scene load_steps=22 format=3 uid="uid://d2fwtsxg78t0"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level4_mansion.gd" id="1_2rqf5"]
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_so7wa"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cdsfjyfo8mdx0" path="res://Scenes/Enemy/main_enemy.tscn" id="5_85yfp"]
 [ext_resource type="PackedScene" uid="uid://do5bie2pf6jll" path="res://Scenes/Enemy/flying_enemy.tscn" id="6_0m2c0"]
 [ext_resource type="PackedScene" uid="uid://dqurcegjctt3m" path="res://Scenes/other/level_switch.tscn" id="9_4iw2o"]
+[ext_resource type="PackedScene" uid="uid://da80tquw0i6eh" path="res://Scenes/coin.tscn" id="10_1v14v"]
 
 [sub_resource type="Gradient" id="Gradient_oo2ax"]
 offsets = PackedFloat32Array(0, 0.438356, 1)
@@ -154,6 +155,93 @@ position = Vector2(1344, 376)
 
 [node name="levelSwitch" parent="." instance=ExtResource("9_4iw2o")]
 position = Vector2(2528, -112)
+
+[node name="Coin" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(512, 192)
+
+[node name="Coin2" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(752, 208)
+
+[node name="Coin3" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(824, 208)
+
+[node name="Coin4" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1040, 288)
+
+[node name="Coin5" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1064, 288)
+
+[node name="Coin6" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(968, 288)
+
+[node name="Coin7" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(936, 552)
+
+[node name="Coin8" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(936, 504)
+
+[node name="Coin9" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1136, 592)
+
+[node name="Coin10" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1224, 592)
+
+[node name="Coin11" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1440, 592)
+
+[node name="Coin12" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1584, 560)
+
+[node name="Coin13" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1584, 456)
+
+[node name="Coin14" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1528, 392)
+
+[node name="Coin15" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1288, 248)
+
+[node name="Coin16" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1552, 224)
+
+[node name="Coin17" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1736, 48)
+
+[node name="Coin18" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1872, 40)
+
+[node name="Coin19" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1952, 128)
+
+[node name="Coin20" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1872, 280)
+
+[node name="Coin21" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(1992, 336)
+
+[node name="Coin22" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(2336, 176)
+
+[node name="Coin23" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(2040, 72)
+
+[node name="Coin24" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(2072, 72)
+
+[node name="Coin25" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(2104, 72)
+
+[node name="Coin26" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(2088, 48)
+
+[node name="Coin28" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(2288, -8)
+
+[node name="Coin29" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(2288, -56)
+
+[node name="Coin27" parent="." instance=ExtResource("10_1v14v")]
+position = Vector2(2088, 96)
 
 [connection signal="switchLevel" from="levelSwitch" to="." method="_on_level_switch_switch_level"]
 

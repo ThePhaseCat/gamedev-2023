@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdsfjyfo8mdx0"]
+[gd_scene load_steps=16 format=3 uid="uid://cdsfjyfo8mdx0"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/main_enemy.gd" id="1_ut4tm"]
 [ext_resource type="Texture2D" uid="uid://kh2cfq71govx" path="res://Assets/Enemies/raiju.png" id="2_vhjjh"]
+[ext_resource type="AudioStream" uid="uid://hdplg72kunpm" path="res://audio/sounds/explosion_death.wav" id="3_whwmq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjc1d"]
 atlas = ExtResource("2_vhjjh")
@@ -117,6 +118,9 @@ collision_mask = 2
 position = Vector2(0, 8)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mi5sq")
+
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_whwmq")
 
 [connection signal="body_entered" from="Jumpzone" to="." method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="attackCheck" to="." method="_on_attack_check_area_entered"]

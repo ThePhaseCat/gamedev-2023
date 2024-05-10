@@ -61,6 +61,13 @@ var frameReady: bool = false
 #menu
 @onready var pause_menu = $PauseMenu
 
+#sound
+@onready var shootSound = $shootSound
+@onready var jumpSound = $jumpSound
+@onready var jump2Sound = $jump2Sound
+@onready var swipeSound = $swipeSound
+@onready var dashSound = $dashSound
+
 func _ready():
 	frameStop.start()
 	position = global.playerPosition
@@ -137,6 +144,7 @@ func _unhandled_input(event):
 					else:
 						canAttack = false
 						PlayerSwordAttack.attacking = true
+						swipeSound.play()
 						if(playerFacingDirection == "left"):
 							animation.play("attackLeft")
 							sprite.play("scratch")
@@ -149,10 +157,11 @@ func _unhandled_input(event):
 		can_dash = false
 		dash_timer.start()
 		dash_again_timer.start()
-		
+		dashSound.play()
 	
 	if(Input.is_action_just_pressed("ranged_attack")):
 		if(canShootProjectile == true):
+			shootSound.play()
 			projectileAttack1()
 	
 	if(Input.is_action_just_pressed("pause") and is_on_floor()):
@@ -169,6 +178,7 @@ func handle_wallJump():
 	if wall_jump_timer.time_left > 0.0:
 		wall_normal = was_wall_normal
 	if Input.is_action_just_pressed("jump") and timesWallJumped <= 3:
+		#jump2Sound.play()
 		velocity.x = wall_normal.x * SPEED
 		velocity.y = jump_velocity
 		timesWallJumped = timesWallJumped + 1
@@ -182,6 +192,7 @@ func handle_jump():
 	
 	if is_on_floor() or coyote_jump_timer.time_left > 0.0:
 		if Input.is_action_pressed("jump"):
+			jumpSound.play()
 			velocity.y = jump_velocity
 			coyote_jump_timer.stop()
 			sprite.play("jump")
@@ -189,11 +200,13 @@ func handle_jump():
 		if Input.is_action_just_released("jump") and velocity.y < jump_velocity / 2:
 			velocity.y = jump_velocity / 2
 			sprite.play("jump")
+			jump2Sound.play()
 		
 		if Input.is_action_just_pressed("jump") and air_jump and not just_wall_jumped:
 			velocity.y = jump_velocity * 0.8
 			air_jump = false
 			sprite.play("jump")
+			jump2Sound.play()
 
 func handle_acceleration(input_axis, delta):
 	if not is_on_floor(): 

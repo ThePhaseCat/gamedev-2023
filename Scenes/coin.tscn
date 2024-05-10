@@ -1,10 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://da80tquw0i6eh"]
+[gd_scene load_steps=8 format=3 uid="uid://da80tquw0i6eh"]
 
 [ext_resource type="Script" path="res://Scripts/coin.gd" id="1_u84w3"]
 [ext_resource type="Texture2D" uid="uid://bfyo76fwipu4i" path="res://Assets/Sprites/coin/coin_temp.png" id="2_6m7wj"]
+[ext_resource type="AudioStream" uid="uid://ccce71qfpeamp" path="res://audio/sounds/pickupCoin.wav" id="3_uu16u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nk18"]
 size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_7enju"]
+resource_name = "up_and_down"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -8, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+
+[sub_resource type="Animation" id="Animation_u41l6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gv5r3"]
+_data = {
+"RESET": SubResource("Animation_u41l6"),
+"up_and_down": SubResource("Animation_7enju")
+}
 
 [node name="Coin" type="Node2D"]
 script = ExtResource("1_u84w3")
@@ -18,4 +77,13 @@ texture = ExtResource("2_6m7wj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_1nk18")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gv5r3")
+}
+
+[node name="coinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uu16u")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="coinSound" to="." method="_on_coin_sound_finished"]

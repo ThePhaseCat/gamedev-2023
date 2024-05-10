@@ -4,6 +4,7 @@ var checkpointPosX: int = 0
 var checkpointPosY: int = 0
 @onready var sprite = $Sprite
 var isThisCheckpointActive: bool = false
+@onready var checkpointSound = $checkpointSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +23,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	var name = body.get_name()
 	if(name == "player"):
+		checkpointSound.play()
 		global.checkpointPosition = Vector2(checkpointPosX, checkpointPosY)
 		global.hasPlayerHitCheckpoint = true
 		sprite.frame = 1

@@ -1,9 +1,13 @@
 extends Node2D
 
+@onready var animation = $AnimationPlayer
+@onready var coinSound = $coinSound
+var already_collected: bool = false
+@onready var sprite = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	animation.play("up_and_down")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,5 +18,13 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	var name = body.get_name()
 	if (name == "player"):
-		global.amountOfCoins = global.amountOfCoins + 1
-		queue_free()
+		if(already_collected == true):
+			pass
+		else:
+			sprite.visible = false
+			global.amountOfCoins = global.amountOfCoins + 1
+			coinSound.play()
+
+
+func _on_coin_sound_finished():
+	queue_free()

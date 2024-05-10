@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 global="*res://Scripts/Globals/global.gd"
+DeathSoundManager="*res://Scenes/death_sound_manager.tscn"
 
 [display]
 

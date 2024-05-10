@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnd1lmrmxv7qp"]
+
+[ext_resource type="Script" path="res://Scenes/death_sound_manager.gd" id="1_5bnab"]
+[ext_resource type="AudioStream" uid="uid://hdplg72kunpm" path="res://audio/sounds/explosion_death.wav" id="2_bpp2e"]
+
+[node name="deathSoundManager" type="Node2D"]
+script = ExtResource("1_5bnab")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bpp2e")

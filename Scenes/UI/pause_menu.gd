@@ -31,6 +31,8 @@ func _on_resume_button_pressed():
 
 func _on_retry_button_pressed():
 	if(isPauseActive == true):
+		global.playerPosition = Vector2(188, 144)
+		global.hasPlayerHitCheckpoint = false
 		global.pauseOn = false
 		isPauseActive = false
 		get_tree().reload_current_scene()
@@ -39,6 +41,8 @@ func _on_retry_button_pressed():
 func _on_quit_button_pressed():
 	if(isPauseActive == true):
 		global.pauseOn = false
+		global.playerPosition = Vector2(188, 144)
+		global.hasPlayerHitCheckpoint = false
 		isPauseActive = false
 		Fade.crossfade_prepare(1, "Diamond", false, false)
 		get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
