@@ -6,6 +6,7 @@ extends Node2D
 func _ready():
 	waterfall.play("default")
 	MusicManager.playLevel2()
+	global.playerPosition = Vector2(184, 144)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

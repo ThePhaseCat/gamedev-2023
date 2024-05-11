@@ -83,7 +83,7 @@ func _physics_process(delta):
 		if(global.hasPlayerHitCheckpoint == true):
 			position = global.checkpointPosition
 		else:
-			#print("HI")
+			print("HI")
 			position = Vector2(188, 144)
 	if(frameReady):
 		#update global player position
@@ -267,7 +267,9 @@ func actualDeath():
 	else:
 		global.amountOfCoins = 0
 	
+	Fade.crossfade_prepare(1, "Diamond", false, false)
 	get_tree().reload_current_scene()
+	Fade.crossfade_execute()
 
 func mainAttackAnimationFinished(): #called when main attack animation (either left or right) is finished
 	canAttack = true
@@ -323,3 +325,7 @@ func _on_projectile_fire_timer_timeout():
 
 func _on_frame_stop_timeout():
 	frameReady = true
+	if(global.hasPlayerHitCheckpoint == false):
+		#print("hi")
+		global.playerPosition = Vector2(184, 144)
+		position = global.playerPosition
