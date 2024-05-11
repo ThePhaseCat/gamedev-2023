@@ -639,7 +639,7 @@ position = Vector2(664, -75)
 shape = SubResource("RectangleShape2D_hj828")
 
 [node name="levelSwitch" parent="." instance=ExtResource("12_s1u7d")]
-position = Vector2(3848, 216)
+position = Vector2(3848, 80)
 
 [node name="Coin" parent="." instance=ExtResource("13_h3634")]
 position = Vector2(576, 48)

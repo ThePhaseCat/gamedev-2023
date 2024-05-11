@@ -17,8 +17,8 @@ func show_pause():
 		visible = true
 		isPauseActive = true
 		global.pauseOn = true
-		print("hi")
-		print(self.visible)
+		#print("hi")
+		#print(self.visible)
 		#get_tree().paused = true
 
 func _on_resume_button_pressed():
@@ -45,5 +45,6 @@ func _on_quit_button_pressed():
 		global.hasPlayerHitCheckpoint = false
 		isPauseActive = false
 		Fade.crossfade_prepare(1, "Diamond", false, false)
+		#MusicManager.playMenu()
 		get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
 		Fade.crossfade_execute()

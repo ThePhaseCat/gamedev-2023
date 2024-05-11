@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 global="*res://Scripts/Globals/global.gd"
 DeathSoundManager="*res://Scenes/death_sound_manager.tscn"
+MusicManager="*res://Scenes/music_manager.tscn"
 
 [display]
 

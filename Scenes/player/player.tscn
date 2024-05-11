@@ -434,18 +434,23 @@ one_shot = true
 
 [node name="shootSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_3ivqo")
+volume_db = -10.0
 
 [node name="jumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_i02gu")
+volume_db = -5.0
 
 [node name="jump2Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_grgka")
+volume_db = -10.0
 
 [node name="swipeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_pfcmd")
+volume_db = -10.0
 
 [node name="dashSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ad3jq")
+volume_db = -5.0
 
 [connection signal="area_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_area_entered"]
 [connection signal="body_entered" from="PlayerArea2D" to="." method="_on_player_area_2d_body_entered"]
