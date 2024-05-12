@@ -617,6 +617,9 @@ friction = 2000
 position = Vector2(1150.5, 750.5)
 shape = SubResource("RectangleShape2D_o5rwu")
 
+[node name="Checkpoint2" parent="." instance=ExtResource("4_oaef5")]
+position = Vector2(2242, -323)
+
 [node name="Checkpoint" parent="." instance=ExtResource("4_oaef5")]
 position = Vector2(3000, -512)
 
