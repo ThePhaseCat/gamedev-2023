@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4fh00e5hv7w"]
+[gd_scene load_steps=3 format=3 uid="uid://b4fh00e5hv7w"]
 
 [ext_resource type="SpriteFrames" uid="uid://xuvqx2et7jem" path="res://Scenes/player/player.tres" id="1_wwvsm"]
+[ext_resource type="Script" path="res://Scenes/cutscenes/fox_animated_sprite.gd" id="2_0qw68"]
 
 [node name="FoxAnimatedSprite" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_wwvsm")
 animation = &"idle"
+script = ExtResource("2_0qw68")
