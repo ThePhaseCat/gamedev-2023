@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var hp = 20
 
-var speed = 15
+var speed = 75
 var gravity = 0
 
 var is_moving_left = true
