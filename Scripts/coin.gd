@@ -4,6 +4,7 @@ extends Node2D
 @onready var coinSound = $coinSound
 var already_collected: bool = false
 @onready var sprite = $Sprite2D
+@onready var shadow = $shadow
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +22,9 @@ func _on_area_2d_body_entered(body):
 		if(already_collected == true):
 			pass
 		else:
+			shadow.queue_free( )
 			sprite.visible = false
+			already_collected = true
 			global.amountOfCoins = global.amountOfCoins + 1
 			coinSound.play()
 

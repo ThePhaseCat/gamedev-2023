@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckc4vxyva48py"]
+[gd_scene load_steps=9 format=3 uid="uid://ckc4vxyva48py"]
 
 [ext_resource type="Script" path="res://Scenes/music_manager.gd" id="1_em61f"]
 [ext_resource type="AudioStream" uid="uid://2qva5mtsfiok" path="res://audio/music/main_menu.ogg" id="2_l8kpt"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://dkmcgkvhlqpi5" path="res://audio/music/level2.ogg" id="4_pr7nu"]
 [ext_resource type="AudioStream" uid="uid://cd3f4o5x7jtx6" path="res://audio/music/level3.ogg" id="5_5aby1"]
 [ext_resource type="AudioStream" uid="uid://caknnwubtaytp" path="res://audio/music/level4.ogg" id="6_valj3"]
+[ext_resource type="AudioStream" uid="uid://csnb4per3ncan" path="res://audio/cutscene/cutscene_1.ogg" id="7_hmrwb"]
+[ext_resource type="AudioStream" uid="uid://dam6glvna85gp" path="res://audio/cutscene/cutscene_2.ogg" id="8_g4fg8"]
 
 [node name="MusicManager" type="Node2D"]
 script = ExtResource("1_em61f")
@@ -28,4 +30,12 @@ volume_db = -15.0
 
 [node name="Level4Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_valj3")
+volume_db = -15.0
+
+[node name="Cutscene1Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hmrwb")
+volume_db = -15.0
+
+[node name="Cutscene2Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_g4fg8")
 volume_db = -15.0

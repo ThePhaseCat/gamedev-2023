@@ -267,9 +267,9 @@ func actualDeath():
 	else:
 		global.amountOfCoins = 0
 	
-	Fade.crossfade_prepare(1, "Diamond", false, false)
+	#Fade.crossfade_prepare(1, "Diamond", false, false)
 	get_tree().reload_current_scene()
-	Fade.crossfade_execute()
+	#Fade.crossfade_execute()
 
 func mainAttackAnimationFinished(): #called when main attack animation (either left or right) is finished
 	canAttack = true

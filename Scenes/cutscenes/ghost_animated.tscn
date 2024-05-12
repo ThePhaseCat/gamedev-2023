@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx0xavoq5rgda"]
+
+[ext_resource type="SpriteFrames" uid="uid://paw24v237dhx" path="res://Scenes/Enemy/flying_enemy.tres" id="1_edknf"]
+
+[node name="ghostAnimated" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("1_edknf")
