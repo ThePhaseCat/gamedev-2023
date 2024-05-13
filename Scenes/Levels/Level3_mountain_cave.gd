@@ -13,5 +13,5 @@ func _process(delta):
 
 func _on_level_switch_switch_level():
 	Fade.crossfade_prepare(1, "Diamond", false, false)
-	get_tree().change_scene_to_file("res://Scenes/Levels/Level4_mansion.tscn")
+	get_tree().change_scene_to_file("res://Scenes/cutscenes/Cutscene3.tscn")
 	Fade.crossfade_execute()

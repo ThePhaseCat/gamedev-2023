@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bjxhardhfcq1i"]
+
+[ext_resource type="Texture2D" uid="uid://dg85lihj3e21e" path="res://Assets/Sprites/mystic fire.png" id="1_0fiiq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vro6i"]
+atlas = ExtResource("1_0fiiq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2byfe"]
+atlas = ExtResource("1_0fiiq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8fae"]
+atlas = ExtResource("1_0fiiq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cekb"]
+atlas = ExtResource("1_0fiiq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n26ak"]
+atlas = ExtResource("1_0fiiq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtao0"]
+atlas = ExtResource("1_0fiiq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaoqy"]
+atlas = ExtResource("1_0fiiq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qssws"]
+atlas = ExtResource("1_0fiiq")
+region = Rect2(256, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vro6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2byfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8fae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cekb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n26ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtao0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaoqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qssws")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
