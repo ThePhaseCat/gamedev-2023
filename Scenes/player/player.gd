@@ -124,6 +124,12 @@ func _physics_process(delta):
 		#sprite.flip_h = velocity.x < 0
 
 func _unhandled_input(event):
+	if(Input.is_action_just_pressed("TPtoFirst")):
+		global_position = Vector2(936,589)
+	if(Input.is_action_just_pressed("TPtoSecond")):
+		global_position = Vector2(1278,765)
+	if(Input.is_action_just_pressed("TPtoThird")):
+		global_position = Vector2(1640,29)
 	if(Input.is_action_just_pressed("move_left")):
 		if(frameReady):
 			playerFacingDirection = "left"
