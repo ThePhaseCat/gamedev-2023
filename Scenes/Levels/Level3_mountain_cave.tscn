@@ -83,7 +83,7 @@ position = Vector2(1784, -1474)
 position = Vector2(1496, -1016)
 
 [node name="levelSwitch" parent="." instance=ExtResource("8_8grtx")]
-position = Vector2(2096, -1464)
+position = Vector2(2144, -1464)
 
 [node name="Coin" parent="." instance=ExtResource("9_t8po0")]
 position = Vector2(456, -243)
