@@ -8,6 +8,10 @@ extends Node2D
 
 @onready var cutscene1 = $Cutscene1Music
 @onready var cutscene2 = $Cutscene2Music
+@onready var cutscene3 = $Cutscene3Music
+@onready var cutscene4 = $Cutscene4Music
+
+@onready var win = $WinMusic
 
 func playMenu():
 	stopMusic()
@@ -37,6 +41,18 @@ func playCutscene2():
 	stopMusic()
 	cutscene2.play()
 
+func playCutscene3():
+	stopMusic()
+	cutscene3.play()
+
+func playCutscene4():
+	stopMusic()
+	cutscene4.play()
+
+func playWin():
+	stopMusic()
+	win.play()
+
 func stopMusic():
 	menu.stop()
 	level1.stop()
@@ -45,3 +61,6 @@ func stopMusic():
 	level4.stop()
 	cutscene1.stop()
 	cutscene2.stop()
+	cutscene3.stop()
+	cutscene4.stop()
+	win.stop()
