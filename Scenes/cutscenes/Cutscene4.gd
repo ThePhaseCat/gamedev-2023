@@ -18,6 +18,9 @@ func _ready():
 func _process(delta):
 	pass
 
+func switchMusic():
+	MusicManager.playWin()
+
 func finished():
 	Fade.crossfade_prepare(1, "Diamond", false, false)
 	get_tree().change_scene_to_file("res://Scenes/UI/win_screen.tscn")

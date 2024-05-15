@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://cpss3e8kddhfa"]
+[gd_scene load_steps=38 format=3 uid="uid://cpss3e8kddhfa"]
 
 [ext_resource type="Script" path="res://Scenes/cutscenes/Cutscene4.gd" id="1_aeo0o"]
 [ext_resource type="PackedScene" uid="uid://cd3pjmvxkf4ol" path="res://background_scenes/background_level1_2.tscn" id="2_qyoau"]
 [ext_resource type="TileSet" uid="uid://bgs2vnlh4kcqb" path="res://Tilesets/TestTileset/tileset_grass.tres" id="3_1btch"]
 [ext_resource type="TileSet" uid="uid://rulp84qa21sy" path="res://Tilesets/TestTileset/tileset_wood.tres" id="4_0rkdd"]
 [ext_resource type="PackedScene" uid="uid://b4fh00e5hv7w" path="res://Scenes/cutscenes/fox_animated_sprite.tscn" id="5_f1lqk"]
+[ext_resource type="AudioStream" uid="uid://hdplg72kunpm" path="res://audio/sounds/explosion_death.wav" id="6_4k80h"]
 [ext_resource type="Texture2D" uid="uid://duvlap7720ok8" path="res://Assets/Sprites/gashadokuro/gashadokuro(ribs).png" id="6_uygpq"]
 [ext_resource type="Texture2D" uid="uid://c4kcpp1102bd4" path="res://Assets/Sprites/gashadokuro/Gashadokuro(hand).png" id="7_q72kx"]
 [ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="7_r2lx1"]
@@ -793,9 +794,12 @@ tracks/32/path = NodePath(".")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
-"times": PackedFloat32Array(20),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(11, 20),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"switchMusic"
+}, {
 "args": [],
 "method": &"finished"
 }]
@@ -834,6 +838,37 @@ tracks/35/keys = {
 "points": PackedFloat32Array(-112, -0.25, 0, 0.25, 0, 600, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(11, 14.1)
 }
+tracks/36/type = "audio"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("AudioStreamPlayer")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_4k80h")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_4k80h")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_4k80h")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_4k80h")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_4k80h")
+}],
+"times": PackedFloat32Array(8.4, 9.1, 9.8, 10.5, 11.2)
+}
+tracks/36/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o247f"]
 _data = {
@@ -1111,6 +1146,9 @@ offset_right = 3070.0
 offset_bottom = 9.0
 theme = ExtResource("7_r2lx1")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "THE END!!!!!!!
 
 You defeated the 
@@ -1236,5 +1274,7 @@ angular_velocity_max = 10.0
 angle_max = 180.0
 scale_amount_max = 10.0
 color = Color(1, 0.00784314, 0.0980392, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [editable path="background"]

@@ -5,7 +5,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	coin.set_text("You collected " + str(global.totalCoinsCollected) + " coins!")
-	MusicManager.playWin()
+	#MusicManager.playWin()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

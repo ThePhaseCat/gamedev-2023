@@ -134,6 +134,9 @@ offset_top = -1112.0
 offset_right = 1803.0
 offset_bottom = -1075.0
 theme = ExtResource("10_6jb5f")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "Fox Fire doesn't work on them...
 Probably cause they're a ghost..."
 

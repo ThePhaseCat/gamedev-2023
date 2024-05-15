@@ -54,6 +54,9 @@ offset_top = -104.0
 offset_right = 2804.0
 offset_bottom = -55.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("7_lwd2k")
 text = "That is an enemy...
 You can kill it...or leave it alive...."
@@ -64,6 +67,9 @@ offset_top = -48.0
 offset_right = 2742.0
 offset_bottom = 1.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "Press Z to attack...
 Or jump on its head?"
 
@@ -73,6 +79,9 @@ offset_top = -96.0
 offset_right = 3062.0
 offset_bottom = -47.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "Press X to use Fox Fire
 I heard it's quite useful..."
 
@@ -82,6 +91,9 @@ offset_top = -736.0
 offset_right = 2326.0
 offset_bottom = -679.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "This is a checkpoint...
 If you die...
 you'll go back here"
@@ -92,6 +104,9 @@ offset_top = -739.0
 offset_right = 1857.0
 offset_bottom = -690.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "This gap is large...
 Dash across by pressing the DOWN arrow
 "
@@ -102,6 +117,9 @@ offset_top = 159.0
 offset_right = 1645.0
 offset_bottom = 208.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "Wall jump by
 jumping on the wall"
 
@@ -111,6 +129,9 @@ offset_top = 308.0
 offset_right = 989.0
 offset_bottom = 383.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "Gain more height by
 jumping again while in
 mid-air"
@@ -121,6 +142,9 @@ offset_top = 136.0
 offset_right = 529.0
 offset_bottom = 211.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "Use the arrow keys to move"
 
 [node name="Label4" type="Label" parent="."]
@@ -129,6 +153,9 @@ offset_top = -56.0
 offset_right = 1576.0
 offset_bottom = -7.0
 theme = ExtResource("6_4rk4t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "Switch walls to keep
 wall jumping"
 horizontal_alignment = 1
