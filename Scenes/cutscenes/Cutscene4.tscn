@@ -1029,7 +1029,7 @@ visible = false
 position = Vector2(3176, -112)
 scale = Vector2(14.25, 13.75)
 sprite_frames = SubResource("SpriteFrames_bidlp")
-frame_progress = 0.830692
+frame_progress = 0.232988
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2952, -144)
