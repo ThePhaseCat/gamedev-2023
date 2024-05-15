@@ -9,6 +9,7 @@ func _ready():
 	boneHead.play("default")
 	projectile.play("default")
 	MusicManager.playCutscene4()
+	animation.play("cutscene")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

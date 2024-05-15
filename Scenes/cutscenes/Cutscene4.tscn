@@ -893,7 +893,7 @@ texture = ExtResource("8_dtwlk")
 [node name="boneHead" type="AnimatedSprite2D" parent="bone"]
 position = Vector2(3128, -168)
 sprite_frames = SubResource("SpriteFrames_0b8ox")
-frame_progress = 0.793877
+frame_progress = 0.742219
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
