@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7c1orxcj6jvq"]
+[gd_scene load_steps=15 format=3 uid="uid://c7c1orxcj6jvq"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level3_mountain_cave.gd" id="1_arsxg"]
 [ext_resource type="PackedScene" uid="uid://dppr70up3djrx" path="res://Scenes/player/player.tscn" id="1_g84he"]
+[ext_resource type="Texture2D" uid="uid://boywwd4ajlg77" path="res://Assets/cave_bg.png" id="2_38l4j"]
 [ext_resource type="TileSet" uid="uid://dv010xp6jeifi" path="res://Tilesets/TestTileset/tileset_snow.tres" id="2_it7rf"]
 [ext_resource type="PackedScene" uid="uid://cb7p1p11xh3ws" path="res://Scenes/Objects/death_zone.tscn" id="3_1qljb"]
 [ext_resource type="PackedScene" uid="uid://plnrnigon5r0" path="res://Scenes/Objects/checkpoint.tscn" id="4_b64l7"]
@@ -41,12 +42,15 @@ offset_right = 1552.0
 offset_bottom = -224.0
 color = Color(0.141176, 0.141176, 0.141176, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 2072.0
-offset_top = -1680.0
-offset_right = 2664.0
-offset_bottom = -1168.0
-color = Color(0, 0, 0, 1)
+[node name="cavebg" type="Sprite2D" parent="background"]
+position = Vector2(2372, -1384)
+scale = Vector2(19.25, 18.5)
+texture = ExtResource("2_38l4j")
+
+[node name="cavebg2" type="Sprite2D" parent="background"]
+position = Vector2(1030, -388)
+scale = Vector2(36.125, 23.25)
+texture = ExtResource("2_38l4j")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_it7rf")
