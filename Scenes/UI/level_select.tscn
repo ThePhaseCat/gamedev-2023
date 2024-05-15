@@ -62,7 +62,7 @@ text = "Level 4"
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_pgg0b")
-text = "Back To Main Menu?"
+text = "Main Menu"
 
 [connection signal="pressed" from="VBoxContainer/Level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level2Button" to="." method="_on_level_2_button_pressed"]

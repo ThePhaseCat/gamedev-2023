@@ -26,6 +26,7 @@ func _on_area_2d_body_entered(body):
 			sprite.visible = false
 			already_collected = true
 			global.amountOfCoins = global.amountOfCoins + 1
+			global.totalCoinsCollected = global.totalCoinsCollected + 1
 			coinSound.play()
 
 

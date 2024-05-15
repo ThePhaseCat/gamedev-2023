@@ -1106,12 +1106,16 @@ text = "Oh no..."
 [node name="Label3" type="Label" parent="."]
 visible = false
 offset_left = 2832.0
-offset_top = -56.0
+offset_top = -88.0
 offset_right = 3070.0
-offset_bottom = -33.0
+offset_bottom = 9.0
 theme = ExtResource("7_r2lx1")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "THE END!!!!!!!"
+text = "THE END!!!!!!!
+
+You defeated the 
+Gashadokuro...
+and saved the village!"
 
 [node name="burn" type="Node2D" parent="."]
 visible = false

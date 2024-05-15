@@ -4,7 +4,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	coin.set_text("You got " + str(global.amountOfCoins) + " coins!")
+	coin.set_text("You collected " + str(global.totalCoinsCollected) + " coins!")
 	MusicManager.playWin()
 
 
