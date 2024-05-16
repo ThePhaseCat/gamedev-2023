@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://rfgt8arh071j"]
+[gd_scene load_steps=16 format=3 uid="uid://rfgt8arh071j"]
 
 [ext_resource type="Script" path="res://Scenes/cutscenes/Cutscene3.gd" id="1_up87o"]
 [ext_resource type="PackedScene" uid="uid://cd3pjmvxkf4ol" path="res://background_scenes/background_level1_2.tscn" id="2_qqjd3"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://rulp84qa21sy" path="res://Tilesets/TestTileset/tileset_wood.tres" id="4_q5sbx"]
 [ext_resource type="Texture2D" uid="uid://bxxwtnj125cnu" path="res://Assets/Sprites/cutscene/paper_note_thing.png" id="5_kn5qk"]
 [ext_resource type="Theme" uid="uid://bkipgqa3ph74w" path="res://text_theme.tres" id="6_qa1ri"]
+[ext_resource type="AudioStream" uid="uid://hdplg72kunpm" path="res://audio/sounds/explosion_death.wav" id="6_swtn7"]
 [ext_resource type="Texture2D" uid="uid://mmyhlmtjwrrb" path="res://Assets/Sprites/MediumShadow.png" id="8_wa25o"]
 [ext_resource type="SpriteFrames" uid="uid://bjxhardhfcq1i" path="res://Scenes/Projectiles/projectile_1.tres" id="9_ab8xe"]
 
@@ -287,6 +288,21 @@ tracks/21/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/22/type = "audio"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("AudioStreamPlayer")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_swtn7")
+}],
+"times": PackedFloat32Array(9)
+}
+tracks/22/use_blend = true
 
 [sub_resource type="Animation" id="Animation_bjd3w"]
 length = 0.001
@@ -714,5 +730,7 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(3384, -160)
 sprite_frames = ExtResource("9_ab8xe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [editable path="background"]

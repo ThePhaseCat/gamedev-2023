@@ -13,6 +13,8 @@ var is_moving_left = true
 @onready var ray = $RayCast2D
 @onready var ray2 = $RayCast2D2
 @onready var sprite = $AnimatedSprite2D
+@onready var deathEffect = preload("res://enemy_death_effect.tscn")
+@onready var playerCheck = $PlayerCheck
 
 var attackNodeInArea = false
 var attackingNode = null
@@ -84,6 +86,10 @@ func _on_attack_check_area_entered(area):
 func death():
 	DeathSoundManager.play()
 	#deathSound.play()
+	var jumpDust = deathEffect.instantiate()
+	jumpDust.emitting = true
+	get_parent().add_child(jumpDust)
+	jumpDust.global_position = global_position
 	queue_free()
 
 func healthDecreaseFromProjectile():
@@ -99,6 +105,7 @@ func _on_player_check_body_entered(body):
 	var name = body.get_name()
 	#print(name)
 	if(name == "player"):
+		playerCheck.monitoring = false
 		body.actualDeath()
 
 

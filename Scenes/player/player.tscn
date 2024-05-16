@@ -172,6 +172,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2musb"]
+radius = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crmdv"]
 atlas = ExtResource("4_uoh28")
@@ -276,10 +277,10 @@ one_shot = true
 [node name="PauseMenu" parent="." instance=ExtResource("9_1258w")]
 
 [node name="ColorRect" parent="PauseMenu" index="0"]
-offset_left = -192.0
-offset_top = -104.0
-offset_right = 128.0
-offset_bottom = 80.0
+offset_left = -440.0
+offset_top = -224.0
+offset_right = 4.0
+offset_bottom = 20.0
 
 [node name="frameStop" type="Timer" parent="."]
 wait_time = 0.05

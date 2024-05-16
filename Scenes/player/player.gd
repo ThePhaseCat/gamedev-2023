@@ -68,6 +68,9 @@ var frameReady: bool = false
 @onready var swipeSound = $swipeSound
 @onready var dashSound = $dashSound
 
+@onready var dustJump = preload("res://jump_thing.tscn")
+var wasFloor = true
+
 func _ready():
 	frameStop.start()
 	position = global.playerPosition
@@ -106,6 +109,7 @@ func _physics_process(delta):
 		
 		var was_on_floor = is_on_floor()
 		var was_on_wall = is_on_wall_only()
+		wasFloor = was_on_floor
 		if was_on_wall:
 			was_wall_normal = get_wall_normal()
 		if(global.pauseOn == false):
@@ -176,6 +180,11 @@ func _unhandled_input(event):
 func handle_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * gravityScale * delta
+	if(is_on_floor() and wasFloor == false):
+		var jumpDust = dustJump.instantiate()
+		jumpDust.emitting = true
+		get_parent().add_child(jumpDust)
+		jumpDust.global_position = global_position
 
 func handle_wallJump():
 	if not is_on_wall_only() and wall_jump_timer.time_left <= 0.0: 

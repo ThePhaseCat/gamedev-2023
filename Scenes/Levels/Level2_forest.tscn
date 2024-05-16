@@ -707,6 +707,72 @@ position = Vector2(3584, 368)
 [node name="Coin21" parent="." instance=ExtResource("13_h3634")]
 position = Vector2(3752, 112)
 
+[node name="waterSplash" type="CPUParticles2D" parent="."]
+position = Vector2(760, 184)
+amount = 100
+emission_shape = 1
+emission_sphere_radius = 23.5
+spread = 109.58
+gravity = Vector2(0, -980)
+angle_max = 180.0
+scale_amount_max = 10.0
+color = Color(0.580392, 0.835294, 1, 1)
+
+[node name="waterSplash2" type="CPUParticles2D" parent="."]
+position = Vector2(816, 184)
+amount = 100
+emission_shape = 1
+emission_sphere_radius = 23.5
+spread = 109.58
+gravity = Vector2(0, -980)
+angle_max = 180.0
+scale_amount_max = 10.0
+color = Color(0.580392, 0.835294, 1, 1)
+
+[node name="waterSplash3" type="CPUParticles2D" parent="."]
+position = Vector2(880, 184)
+amount = 100
+emission_shape = 1
+emission_sphere_radius = 23.5
+spread = 109.58
+gravity = Vector2(0, -980)
+angle_max = 180.0
+scale_amount_max = 10.0
+color = Color(0.580392, 0.835294, 1, 1)
+
+[node name="waterSplash4" type="CPUParticles2D" parent="."]
+position = Vector2(920, 184)
+amount = 100
+emission_shape = 1
+emission_sphere_radius = 23.5
+spread = 109.58
+gravity = Vector2(0, -980)
+angle_max = 180.0
+scale_amount_max = 10.0
+color = Color(0.580392, 0.835294, 1, 1)
+
+[node name="waterSplash5" type="CPUParticles2D" parent="."]
+position = Vector2(848, 184)
+amount = 100
+emission_shape = 1
+emission_sphere_radius = 23.5
+spread = 109.58
+gravity = Vector2(0, -980)
+angle_max = 180.0
+scale_amount_max = 10.0
+color = Color(0.580392, 0.835294, 1, 1)
+
+[node name="waterSplash6" type="CPUParticles2D" parent="."]
+position = Vector2(784, 184)
+amount = 100
+emission_shape = 1
+emission_sphere_radius = 23.5
+spread = 109.58
+gravity = Vector2(0, -980)
+angle_max = 180.0
+scale_amount_max = 10.0
+color = Color(0.580392, 0.835294, 1, 1)
+
 [connection signal="switchLevel" from="levelSwitch" to="." method="_on_level_switch_switch_level"]
 
 [editable path="DeathZone"]

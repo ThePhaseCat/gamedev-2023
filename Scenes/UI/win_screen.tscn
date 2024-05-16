@@ -45,12 +45,26 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -72.0
-offset_top = 72.0
+offset_top = 48.0
 offset_right = 63.0
-offset_bottom = 95.0
+offset_bottom = 71.0
 grow_horizontal = 2
 theme = ExtResource("2_8rytq")
 text = "coins here"
+horizontal_alignment = 1
+
+[node name="coin2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_top = 80.0
+offset_right = 88.0
+offset_bottom = 103.0
+grow_horizontal = 2
+theme = ExtResource("2_8rytq")
+text = "Thanks for playing!"
 horizontal_alignment = 1
 
 [node name="buttonVBOX" type="VBoxContainer" parent="."]
@@ -61,9 +75,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -80.0
-offset_top = -68.0
+offset_top = -53.0
 offset_right = 85.0
-offset_bottom = 33.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 0
 
